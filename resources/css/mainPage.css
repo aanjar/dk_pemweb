@@ -1,0 +1,357 @@
+*{
+    font-family: "Montserrat";
+    box-sizing: border-box;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    background-color: #070D0D;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 80px;
+    margin-top: 19px;
+}
+
+nav img{
+    width: 90px;
+    margin-left: 80px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    padding:8px 0;
+    transition: all;
+    transition-duration: 300ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0)
+}
+
+nav ul li a:hover{
+    border-bottom: 1px solid white;
+}
+
+#promotion{
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom:50px;
+}
+
+#Kategori{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 10rem;
+}
+
+#Kategori h2{
+    font-size: 20px;
+    font-weight: 800;
+    padding-left: 50px;
+    padding: 8px;
+    border-bottom: 4px solid #070D0D;
+}
+
+#Kategori a{
+    font-size: 15px;
+    color: #070D0D;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+#Kategori-Display{
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 50px;
+}
+
+.Kategori-Display{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+    padding: 0 2rem; 
+}  
+
+.Kategori-Display img{
+    width: 70%; 
+    margin: auto; 
+    display: block;
+}
+
+.Kategori-Display img:hover{
+    width: 70%;
+    scale: 1.1; 
+    transition: all;
+    transition-duration: 500ms;
+    margin: auto; 
+    display: block;
+}
+
+#Kategori2{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 10rem;
+}
+
+#Kategori2 h2{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px;
+}
+
+#Kategori2 a{
+    font-size: 15px;
+    color: #070D0D;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.Produk-Baru{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 15px;
+    margin-top: 25  px;
+    padding-left: 150px;
+    padding-right: 150px;
+    align-items: center;
+    
+}
+
+.Produk-Baru-Item img{
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* bisa disesuaikan */
+  height: auto;
+  object-fit: contain;
+}
+
+.Produk-Baru-Item h2{
+    font-size: 16px;
+    padding: 0 18px;
+    padding-top: 25px;
+}
+
+.Produk-Baru-Item p{
+    font-size: 15px;
+    padding: 0 18px;
+    color: red;
+    font-weight: 600;
+}
+
+.Produk-Baru-Item{
+    border:1px solid #070d0d17;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding-bottom: 50px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.Produk-Baru-Item:hover{
+    border:2px solid #070d0d;
+    scale: 1.02;
+    transition: all;
+    transition-duration: 500ms;
+    transform: translateY(-5px);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#Kategori3{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 10rem;
+    padding-top: 80px;
+}
+
+#Kategori3 h2{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px;
+}
+
+#Kategori3 a{
+    font-size: 15px;
+    color: #070D0D;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+#Brand{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 10rem;
+    }
+    
+#Brand h2{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 50px;
+    padding: 8px;
+    border-bottom: 4px solid #ffd502;
+
+}
+
+#Kategori-Display-Brand{
+    padding-top: 0px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+.Kategori-Display-Brand{
+    display: grid;
+    grid-template-columns: repeat(8, 2fr); 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+    padding: 0 2rem; 
+}  
+
+.Kategori-Display-Brand img{
+    width: 90%; 
+    margin: auto; 
+    display: block;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.Kategori-Display-Brand img:hover{
+    width: 90%;
+    border:1px solid #070d0d30;
+    margin: auto; 
+    display: block;
+}
+
+#Benefit{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 10rem;
+    padding-bottom: 0%;
+}
+
+#Benefit h2{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 50px;
+    padding: 8px;
+}
+
+.Benefit-Item{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+    padding: 0 2rem; 
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+.Benefit-Item img{
+    width: 90%; 
+    margin: auto; 
+    display: block;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.Benefit-Item h2{
+    font-size: 12px;
+    padding-left: px;
+    text-align: center;
+    font-weight: 650;
+}
+
+footer{
+    display: flex;
+    padding-top: 30px;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #070D0D;
+    color: white;
+}
+
+footer img{
+    width: 80%;
+    margin-top: 0px;
+}
+
+footer a{
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+}
+
+.cs-detail{
+    display: block;
+}
+
+footer h2{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.cs-dinoyo{
+    padding-top: 20px;
+    padding-right: 60px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9rem;
+}
+
+.Logo-Medplace{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#Logo-Medsos{
+    padding-top: 20px;
+}
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #070D0D;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
