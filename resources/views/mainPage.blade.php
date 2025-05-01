@@ -52,13 +52,13 @@
             <!-- Carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../mainIMG/sample1.png" alt="Los Angeles" class="d-block w-100">
+                    <img src="../mainIMG/Sample1.png" alt="Los Angeles" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="../mainIMG/sample2.png" alt="Chicago" class="d-block w-100">
+                    <img src="../mainIMG/Sample2.png" alt="Chicago" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="../mainIMG/sample3.png" alt="New York" class="d-block w-100">
+                    <img src="../mainIMG/Sample3.png" alt="New York" class="d-block w-100">
                 </div>
             </div>
 
