@@ -28,7 +28,7 @@
                     <a href="/">Beranda</a>
                 </li>
                 <li>
-                    <a href="">Katalog</a>
+                    <a href="katalog">Katalog</a>
                 </li>
                 <li>
                     <a href="">Kontak</a>
