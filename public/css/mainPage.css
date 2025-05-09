@@ -1,357 +1,197 @@
-*{
-    font-family: "Montserrat";
+* {
+    font-family: "Montserrat", sans-serif;
     box-sizing: border-box;
 }
 
-html, body{
-    padding: 0;
+html, body {
     margin: 0;
+    padding: 0;
 }
 
-nav{
-    display: flex;
-    background-color: #070D0D;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+/* Navigation */
+.navbar {
+    padding: 1rem 0;
 }
 
-nav ul{
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 2rem;
-    margin-right: 80px;
-    margin-top: 19px;
+.navbar-brand img {
+    max-width: 90px;
 }
 
-nav img{
-    width: 90px;
-    margin-left: 80px;
-}
-
-nav ul li a{
-    text-decoration: none;
+.navbar-nav .nav-link {
     font-weight: 600;
-    color: white;
-    padding:8px 0;
-    transition: all;
-    transition-duration: 300ms;
-    border-bottom: 1px solid rgba(0, 0, 0, 0)
+    padding: 0.5rem 1rem;
+    transition: border-bottom 0.3s ease;
 }
 
-nav ul li a:hover{
+.navbar-nav .nav-link:hover {
     border-bottom: 1px solid white;
 }
 
-#promotion{
-    padding-top: 50px;
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-bottom:50px;
+.navbar-toggler.always-visible {
+    display: block !important;
 }
 
-#Kategori{
-    display: flex;
-    justify-content: space-between;
-    padding: 0rem 10rem;
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
 }
 
-#Kategori h2{
-    font-size: 20px;
+@media (max-width: 991px) {
+    .navbar-nav {
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.25rem;
     font-weight: 800;
-    padding-left: 50px;
-    padding: 8px;
+    padding-bottom: 0.5rem;
     border-bottom: 4px solid #070D0D;
 }
 
-#Kategori a{
-    font-size: 15px;
-    color: #070D0D;
-    text-decoration: none;
-    font-weight: 300;
-}
-
-#Kategori-Display{
-    padding-top: 30px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 50px;
-}
-
-.Kategori-Display{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; 
-    padding: 0 2rem; 
-}  
-
-.Kategori-Display img{
-    width: 70%; 
-    margin: auto; 
-    display: block;
-}
-
-.Kategori-Display img:hover{
-    width: 70%;
-    scale: 1.1; 
-    transition: all;
-    transition-duration: 500ms;
-    margin: auto; 
-    display: block;
-}
-
-#Kategori2{
-    display: flex;
-    justify-content: space-between;
-    padding: 0rem 10rem;
-}
-
-#Kategori2 h2{
-    font-size: 20px;
-    font-weight: 600;
-    padding: 8px;
-}
-
-#Kategori2 a{
-    font-size: 15px;
-    color: #070D0D;
-    text-decoration: none;
-    font-weight: 300;
-}
-
-.Produk-Baru{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    column-gap: 15px;
-    margin-top: 25  px;
-    padding-left: 150px;
-    padding-right: 150px;
-    align-items: center;
-    
-}
-
-.Produk-Baru-Item img{
-  display: block;
-  margin: 0 auto;
-  width: 80%; /* bisa disesuaikan */
-  height: auto;
-  object-fit: contain;
-}
-
-.Produk-Baru-Item h2{
-    font-size: 16px;
-    padding: 0 18px;
-    padding-top: 25px;
-}
-
-.Produk-Baru-Item p{
-    font-size: 15px;
-    padding: 0 18px;
-    color: red;
-    font-weight: 600;
-}
-
-.Produk-Baru-Item{
-    border:1px solid #070d0d17;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding-bottom: 50px;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-.Produk-Baru-Item:hover{
-    border:2px solid #070d0d;
-    scale: 1.02;
-    transition: all;
-    transition-duration: 500ms;
-    transform: translateY(-5px);
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding-bottom: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#Kategori3{
-    display: flex;
-    justify-content: space-between;
-    padding: 0rem 10rem;
-    padding-top: 80px;
-}
-
-#Kategori3 h2{
-    font-size: 20px;
-    font-weight: 600;
-    padding: 8px;
-}
-
-#Kategori3 a{
-    font-size: 15px;
-    color: #070D0D;
-    text-decoration: none;
-    font-weight: 300;
-}
-
-#Brand{
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem 10rem;
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
     }
-    
-#Brand h2{
-    font-size: 20px;
+}
+
+/* Categories */
+#Kategori-Display img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+#Kategori-Display img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 576px) {
+    #Kategori-Display .row {
+        row-gap: 1rem;
+    }
+}
+
+/* Products */
+.produk-baru-item {
+    border: 1px solid rgba(7, 13, 13, 0.1);
+    border-radius: 20px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.produk-baru-item:hover {
+    border: 2px solid #070D0D;
+    transform: translateY(-5px);
+}
+
+.produk-baru-item img {
+    width: 80%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.produk-baru-item .card-title {
+    font-size: 1rem;
     font-weight: 600;
-    padding-left: 50px;
-    padding: 8px;
-    border-bottom: 4px solid #ffd502;
-
 }
 
-#Kategori-Display-Brand{
-    padding-top: 0px;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 50px;
+.produk-baru-item .card-text {
+    font-size: 0.9375rem;
+    font-weight: 600;
 }
 
-.Kategori-Display-Brand{
-    display: grid;
-    grid-template-columns: repeat(8, 2fr); 
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; 
-    padding: 0 2rem; 
-}  
-
-.Kategori-Display-Brand img{
-    width: 90%; 
-    margin: auto; 
-    display: block;
-    border-radius: 10px;
-    padding: 20px;
+@media (max-width: 768px) {
+    .produk-baru-item .card-title {
+        font-size: 0.875rem;
+    }
+    .produk-baru-item .card-text {
+        font-size: 0.8125rem;
+    }
 }
 
-.Kategori-Display-Brand img:hover{
-    width: 90%;
-    border:1px solid #070d0d30;
-    margin: auto; 
-    display: block;
+/* Horizontal Product List on Mobile */
+@media (max-width: 576px) {
+    .product-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1rem;
+    }
+    .product-list .col {
+        flex: 0 0 auto;
+        width: 80%;
+    }
 }
 
-#Benefit{
+/* Brands */
+#Kategori-Display-Brand .col {
     display: flex;
-    justify-content: space-between;
-    padding: 3rem 10rem;
-    padding-bottom: 0%;
-}
-
-#Benefit h2{
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 50px;
-    padding: 8px;
-}
-
-.Benefit-Item{
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
     justify-content: center;
     align-items: center;
-    gap: 1rem; 
-    padding: 0 2rem; 
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 50px;
 }
 
-.Benefit-Item img{
-    width: 90%; 
-    margin: auto; 
-    display: block;
+#Kategori-Display-Brand img {
+    max-width: 80%;
+    height: auto;
     border-radius: 10px;
-    padding: 20px;
+    transition: border 0.3s ease;
 }
 
-.Benefit-Item h2{
-    font-size: 12px;
-    padding-left: px;
-    text-align: center;
+#Kategori-Display-Brand img:hover {
+    border: 1px solid rgba(7, 13, 13, 0.3);
+}
+
+/* Benefits */
+.benefit-title {
+    font-size: 0.75rem;
     font-weight: 650;
 }
 
-footer{
-    display: flex;
-    padding-top: 30px;
-    justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: #070D0D;
-    color: white;
+@media (min-width: 768px) {
+    .benefit-title {
+        font-size: 0.875rem;
+    }
 }
 
-footer img{
-    width: 80%;
-    margin-top: 0px;
-}
-
-footer a{
-    font-size: 12px;
-    margin-bottom: 5px;
-    font-weight: 400;
-    color: white;
-    text-decoration: none;
-}
-
-footer a:hover{
-    font-size: 12px;
-    margin-bottom: 5px;
-    font-weight: 400;
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid white;
-}
-
-.cs-detail{
-    display: block;
-}
-
-footer h2{
-    font-size: 15px;
+/* Footer */
+.footer-title {
+    font-size: 0.9375rem;
     font-weight: 700;
 }
 
-.cs-dinoyo{
-    padding-top: 20px;
-    padding-right: 60px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 9rem;
+footer a {
+    font-size: 0.75rem;
+    color: white;
+    text-decoration: none;
+    transition: border-bottom 0.3s ease;
 }
 
-.Logo-Medplace{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+footer a:hover {
+    border-bottom: 1px solid white;
 }
 
-#Logo-Medsos{
-    padding-top: 20px;
+.logo-medplace img {
+    max-width: 60px;
 }
 
-.spinner {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #070D0D;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-  }
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+#Logo-Medsos img {
+    max-width: 30px;
+}
+
+@media (max-width: 576px) {
+    .footer-title {
+        font-size: 0.8125rem;
+    }
+    footer a {
+        font-size: 0.6875rem;
+    }
+    .logo-medplace img {
+        max-width: 50px;
+    }
+    #Logo-Medsos img {
+        max-width: 25px;
+    }
+}

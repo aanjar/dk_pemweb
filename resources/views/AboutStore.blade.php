@@ -3,174 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami</title>
+    <title>Tentang Kami - Dinoyo Kamera</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/AboutStore.css') }}" />
-    <script type="module" src="{{ asset ('js/loadingScreen.js') }}"></script>
-    <script type="module" src="{{ asset ('js/productHover.js') }}"></script>
-    <script type="module" src="{{ asset ('js/scrollNavigation.js') }}"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/aboutStore.css') }}">
 </head>
 <body>
-    <section>
-        <nav id="header">
-            <div>
-                <img src="{{ asset ('mainIMG/logoDinoyo.png') }}" alt="">
-            </div>
-            <ul>
-                <li>
-                    <a href="/">Beranda</a>
-                </li>
-                <li>
-                    <a href="">Katalog</a>
-                </li>
-                <li>
-                    <a href="">Kontak</a>
-                </li>
-                <li>
-                    <a href="/about">Tentang Kami</a>
-                </li>
-            </ul>  
-        </nav>
-    </section>
-    <section>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <div class="flex flex-col md-flex-row md-space-x-10 space-y-8 md-space-y-0">
-                <div class="md-w-7-12">
-                    <div class="video-wrapper">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3o2IrQrb7ws?si=qPdiaa0io3PMVR_-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="logo-row" aria-label="Client logos">
-                    </div>
-                </div>  
-                <div class="md-w-5-12 about-card" role="region" aria-labelledby="aboutus-title">
-                    <p class="uppercase">ABOUT US</p>
-                    <h2 id="aboutus-title">
-                        We're Motivated By<br />
-                        The Desire<br />
-                        To Achieve.
-                    </h2>
-                    <p class="text-gray">
-                        DinoyoKamera.com sebagai toko penyedia kamera profesional, perlengkapan fotografi, lensa kamera, tripod, lighting studio, aksesoris kamera, kamera digital, kamera analog, hingga jasa servis kamera. Dengan cara layanan yang ramah dan informatif, didukung beberapa keahlian dari para fotografer dan teknisi kamera berpengalaman, Dinoyo Kamera menjadi pilihan toko kamera terbaik di kota,
-                        <span style="color:#db2777;"> Malang</span>
-                    </p>
-                    <a href="#" class="link">Let's work together!</a>
-                </div>
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('mainIMG/logoDinoyo.png') }}" alt="Dinoyo Kamera Logo" class="img-fluid" style="max-width: 90px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Katalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/about">Tentang Kami</a></li>
+                </ul>
             </div>
+        </div>
+    </nav>
 
-            <!-- Middle Section -->
-            <div class="flex flex-col md-flex-row md-space-x-10 space-y-8 md-space-y-0" style="margin-top:64px;">
-                <!-- Left text block -->
-                <div class="md-w-6-12 why-us">
-                    <p class="uppercase">WHY US</p>
-                    <h3>What We Can Do For<br /> Your Business?</h3>
-                    <p>
-                        Tidak hanya fokus pada penjualan kamera digital dan analog, Dinoyo Kamera juga menyediakan beragam perlengkapan fotografi lainnya seperti lensa, tripod, lighting, aksesoris kamera, tas kamera, hingga perangkat perekaman audio.
-                    </p>
-                    <p>
-                        Untuk kebutuhan fotografi dan videografi, Dinoyo Kamera juga menyediakan layanan tambahan seperti rental kamera, jasa servis kamera, konsultasi perlengkapan, hingga pelatihan dasar fotografi bagi pemula maupun profesional.
-                    </p>
-                    <p>
-                        Dikelola oleh tim yang ramah, berpengalaman, dan antusias di bidang fotografi, Dinoyo Kamera selalu berkomitmen memberikan produk dan layanan terbaik sesuai dengan kebutuhan serta passion Anda dalam dunia visual.
-                    </p>
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- About Us Section -->
+        <section class="row align-items-center mb-5 about-card">
+            <div class="col-md-7">
+                <p class="text-uppercase text-muted small">About Us</p>
+                <h2 class="fw-bold text-dark">Kami Termotivasi untuk Memenuhi Passion Fotografi Anda!</h2>
+                <p class="text-gray">DinoyoKamera.com sebagai toko penyedia kamera profesional, perlengkapan fotografi, lensa kamera, tripod, lighting studio, aksesoris kamera, kamera digital, kamera analog, hingga jasa servis kamera. Dengan cara layanan yang ramah dan informatif, didukung beberapa keahlian dari para fotografer dan teknisi kamera berpengalaman, Dinoyo Kamera menjadi pilihan toko kamera terbaik di kota, <span class="text-pink">Malang</span>.</p>
+                <a href="#" class="link text-pink fw-bold text-decoration-none">Let's work together!</a>
+            </div>
+            <div class="col-md-5">
+                <div class="image-stack">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOwN60wyBHXel9mMa_GAk-o__tyrk4oqh2ELz_M=w426-h240-k-no" alt="Book cover" class="img-fluid rounded shadow">
                 </div>
+            </div>
+        </section>
 
-                <!-- Right images stack -->
-                <div class="image-stack" aria-label="Portfolio book images">
-                    <div class="image1" role="img" aria-label="">
-                        <img src="https://www.soocadesign.com/wp-content/uploads/2021/02/jasa-desain-annual-report-molindo.png" alt="Book cover design with blue and white stripes and text" />
-                    </div>
-                </div>
+        <!-- YouTube Video Section -->
+        <section class="mb-5">
+            <div class="video-wrapper">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/3o2IrQrb7ws?si=qPdiaa0io3PMVR_-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <!-- Bottom Section -->
-            <div class="bottom-section">
-                <!-- Left pink block -->
-                <div class="pink-box" role="region" aria-labelledby="pinkbox-title">
-                    <h4 id="pinkbox-title">Fotografi Mampu Menjadi Sarana Perubahan</h4>
-                    <p>
-                        Kami percaya bahwa fotografi memiliki kekuatan untuk menginspirasi dan menjadi sarana perubahan. Sebuah foto bukan sekadar hasil jepretan, tetapi cara melihat, merasakan, dan menceritakan dunia. Fotografi adalah proses menangkap momen, menyusun narasi visual, dan membangun koneksi emosional yang bisa mengubah cara pandang seseorang terhadap realitas di sekitarnya. Dengan kamera di tangan, setiap orang punya potensi untuk berbicara tanpa kata.
-                    </p>
-                </div>
+        </section>
 
-                <!-- Right white block -->
-                <div class="white-box" role="region" aria-labelledby="whitebox-title">
-                    <p class="uppercase">What Are You Waiting for?</p>
-                    <h4 id="whitebox-title">Let's gear up your photography journey!</h4>
-                    <button class="btn-quote">Request a Quote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer id="footer">
-        <div>
-            <img src="../mainIMG/logo dinoyow.png" alt="">
-            <p>Lihat semua outlet Dinoyo Camera</p>
-            <p>SMS/Whatsapp</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-            <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-        </div>
-        <div class="cs-dinoyo">
-            <h2>CUSTOMER SERVICE</h2>
-            <div class="cs-detail">
-                <a href="">Contact Us</a> <br>
-                <a href="">Feedback</a>
-            </div>
-        </div>
-        <div class="cs-dinoyo">
-            <h2>ABOUT US</h2>
-            <div class="cs-detail">
-                <a href="">About Dinoyo Camera</a><br>
-                <a href="">Store Location</a>
-            </div>
-        </div>
-        <div class="cs-dinoyo">
-            <div>
-                <h2>MARKETPLACE</h2>
-            </div>
-            <div class="Logo-Medplace">
-                <div>
-                    <img src="https://admin.focusnusantara.com/media/wysiwyg/shopee.png" alt="">
-                </div>
-                <div>
-                    <img src="https://admin.focusnusantara.com/media/wysiwyg/tokopedia.png" alt="">
-                </div>
-                <div>
-                    <img src="https://admin.focusnusantara.com/media/wysiwyg/blibli.png" alt="">
-                </div>
-            </div>
-            <div id="Logo-Medsos">
-                <div>
-                    <h2>FIND US</h2>
-                </div>
-                <div class="Logo-Medplace">
-                    <div>
-                        <img src="../mainIMG/Instagram.svg" alt="">
-                    </div>
-                    <div>
-                        <img src="../mainIMG/Facebook.svg" alt="">
-                    </div>
-                    <div>
-                        <img src="../mainIMG/Twitter.svg" alt="">
+        <!-- Reputation Section -->
+        <section class="row mb-5">
+            <div class="col-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="https://i.ytimg.com/an_webp/434F8u2J8xs/mqdefault_6s.webp?du=3000&sqp=CMyu88AG&rs=AOn4CLAcEnWion7IDIEj5X-OpTkcFFeyWQ" alt="Hands holding camera" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold text-dark">REPUTASI</h3>
+                                <p class="card-text text-gray">Dinoyo Kamera telah menjadi lebih dari sekadar toko - kami adalah komunitas penggemar kamera selama lebih dari 10 tahun, tempat pelanggan dapat menemukan penawaran nyata. Kami menawarkan keaslian dan akurasi. Tim kami berbasis di Malang, jadi jangan ragu untuk menghubungi kami atau datang ke toko kami untuk menemukan perbedaan Dinoyo Kamera hari ini.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Selection Section -->
+        <section class="row mb-5">
+            <div class="col-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-8 order-md-1 order-2">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold text-dark">KEPERCAYAAN</h3>
+                                <p class="card-text text-gray">Dengan lebih dari 10.000 item dalam stok, ada sesuatu untuk setiap fotografer di Dinoyo Kamera. Dari kamera klasik 35mm hingga medium dan large-format, kami menambahkan ratusan item baru setiap minggu. Kami menyediakan segala yang lolos inspeksi (atau yang kami perbaiki). Baik Anda pemula atau profesional berpengalaman, Anda akan menemukan peralatan yang sesuai dengan visi dan anggaran Anda.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 order-md-2 order-1">
+                            <img src="https://i.ytimg.com/an_webp/EG58Pi5rH94/mqdefault_6s.webp?du=3000&sqp=CKyS88AG&rs=AOn4CLD4HY4hRpASFJVxOFy6xhCWRy_wgg" alt="Stack of cameras" class="img-fluid rounded-end">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clarity Section -->
+        <section class="row mb-5">
+            <div class="col-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-4">
+                            <img src="https://i.ytimg.com/an_webp/tQru5Ae4pfM/mqdefault_6s.webp?du=3000&sqp=CK-988AG&rs=AOn4CLDXvdjYZ2hTDNlNyGXiYmUG5E42Ew">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold text-dark">KESETIAAN</h3>
+                                <p class="card-text text-gray">Kami percaya pada transparansi penuh. Itu sebabnya hampir setiap item di toko kami difoto secara individual. Apa yang Anda lihat adalah apa yang akan Anda terima - tanpa kejutan. Dikombinasikan dengan peringkat kontrol kualitas kami, kami memberi Anda semua yang Anda butuhkan untuk membuat keputusan yang tepat. Masih ada pertanyaan? Tim kami siap membantu!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Section -->
+        <section class="row mb-5">
+            <div class="col-12">
+                <div class="card feature-card shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-8 order-md-1 order-2">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold text-dark">KUALITAS</h3>
+                                <p class="card-text text-gray">Di Dinoyo Kamera, kami percaya untuk melakukan sesuatu dengan benar. Itu sebabnya setiap item yang kami jual diuji menggunakan peralatan kamera profesional era film. Baik itu kecepatan rana, pengukuran, atau akurasi eksposur, kami memastikan setiap produk memenuhi standar tinggi kami sebelum sampai ke Anda. Setiap kamera, lensa, dan aksesoris diperiksa dengan cermat, diperbaiki jika perlu, dan diberi label dengan peringkat kondisi yang jelas.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 order-md-2 order-1">
+                            <img src="https://i.ytimg.com/an_webp/McOxVcYId8Q/mqdefault_6s.webp?du=3000&sqp=CJCe88AG&rs=AOn4CLDY37TBOVU_wLAoQuD-DyYNO3UPzA" alt="Testing equipment" class="img-fluid rounded-end">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="mb-5 why-us text-center">
+            <p class="text-uppercase text-muted small">Kenapa Kami?</p>
+            <h3 class="fw-bold text-dark">Apa yang Bisa Kami Lakukan untuk Anda?</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="text-gray">Tidak hanya fokus pada penjualan kamera digital dan analog, Dinoyo Kamera juga menyediakan beragam perlengkapan fotografi lainnya seperti lensa, tripod, lighting, aksesoris kamera, tas kamera, hingga perangkat perekaman audio.</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-gray">Untuk kebutuhan fotografi dan videografi, Dinoyo Kamera juga menyediakan layanan tambahan seperti rental kamera, jasa servis kamera, konsultasi perlengkapan, hingga pelatihan dasar fotografi bagi pemula maupun profesional.</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-gray">Dikelola oleh tim yang ramah, berpengalaman, dan antusias di bidang fotografi, Dinoyo Kamera selalu berkomitmen memberikan produk dan layanan terbaik sesuai dengan kebutuhan serta passion Anda dalam dunia visual.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="bottom-section mb-5">
+            <p class="text-uppercase text-muted small text-center">TESTIMONI</p>
+            <h3 class="fw-bold text-dark text-center mb-4">Apa Kata Mereka?</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card shadow-sm text-center">
+                        <img src="https://images.pexels.com/photos/21852309/pexels-photo-21852309/free-photo-of-pria-laki-laki-lelaki-kedudukan.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500  " alt="Customer 1" class="rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark">Ferdiansyah</h5>
+                            <p class="card-text text-gray">"Pelayanan di Dinoyo Kamera sangat memuaskan! Saya membeli kamera analog dan tim mereka sangat membantu menjelaskan cara penggunaannya."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card shadow-sm text-center">
+                        <img src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/983/2024/11/16/unnamed-355406532.png" alt="Customer 2" class="rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark">Rosul</h5>
+                            <p class="card-text text-gray">"Saya menyewa kamera untuk proyek fotografi dan sangat puas dengan kondisi peralatannya. Harga sewa juga terjangkau, dan stafnya ramah sekali!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card shadow-sm text-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDLcaoMqauKXsMZwJOio8tds2bjfB3WK3HnQ&s" alt="Customer 3" class="rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark">Imtiaz Hussain</h5>
+                            <p class="card-text text-gray">"Dinoyo Kamera adalah tempat terbaik untuk servis kamera di Malang. Kamera saya yang bermasalah jadi seperti baru lagi setelah diperbaiki di sini."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <img src="{{ asset('mainIMG/logo_dinoyow.png') }}" alt="Dinoyo Kamera Logo" class="img-fluid mb-3" style="max-width: 80%;">
+                    <p>Lihat semua outlet Dinoyo Camera</p>
+                    <p>SMS/Whatsapp</p>
+                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
+                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5>Customer Service</h5>
+                    <div class="cs-detail">
+                        <a href="#" class="text-white text-decoration-none">Contact Us</a><br>
+                        <a href="#" class="text-white text-decoration-none">Feedback</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5>About Us</h5>
+                    <div class="cs-detail">
+                        <a href="#" class="text-white text-decoration-none">About Dinoyo Camera</a><br>
+                        <a href="#" class="text-white text-decoration-none">Store Location</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5>Marketplace</h5>
+                    <div class="logo-medplace d-flex gap-3">
+                        <img src="https://admin.focusnusantara.com/media/wysiwyg/shopee.png" alt="Shopee" class="img-fluid" style="max-width: 60px;">
+                        <img src="https://admin.focusnusantara.com/media/wysiwyg/tokopedia.png" alt="Tokopedia" class="img-fluid" style="max-width: 60px;">
+                        <img src="https://admin.focusnusantara.com/media/wysiwyg/blibli.png" alt="Blibli" class="img-fluid" style="max-width: 60px;">
+                    </div>
+                    <div class="mt-3">
+                        <h5>Find Us</h5>
+                        <div class="logo-medplace d-flex gap-3">
+                            <img src="{{ asset('mainIMG/Instagram.svg') }}" alt="Instagram" class="img-fluid" style="max-width: 30px;">
+                            <img src="{{ asset('mainIMG/Facebook.svg') }}" alt="Facebook" class="img-fluid" style="max-width: 30px;">
+                            <img src="{{ asset('mainIMG/Twitter.svg') }}" alt="Twitter" class="img-fluid" style="max-width: 30px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>s
-    <div id="quoteModal" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:white;padding:20px;border:1px solid #ccc;z-index:1000;">
-        <h3>Request a Quote</h3>
-        <input type="text" placeholder="Nama" style="display:block; margin-bottom:10px;">
-        <input type="email" placeholder="Email" style="display:block; margin-bottom:10px;">
-        <button onclick="closeModal()">Kirim</button>
-        <button onclick="closeModal()">Tutup</button>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal fade" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quoteModalLabel">Request a Quote</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-3" placeholder="Nama">
+                    <input type="email" class="form-control mb-3" placeholder="Email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-dark">Kirim</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9999;display:flex;align-items:center;justify-content:center;">
-        <div class="spinner"></div>
-      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/aboutStore.js') }}"></script>
+    <script src="{{ asset('js/loadingScreen.js') }}"></script>
+    <script src="{{ asset('js/productHover.js') }}"></script>
+    <script src="{{ asset('js/scrollNavigation.js') }}"></script>
 </body>
 </html>
