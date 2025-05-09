@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Products</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/mainPage.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="{{ asset('js/loadingScreen.js') }}"></script>
+    <script type="module" src="{{ asset('js/productHover.js') }}"></script>
+    <script type="module" src="{{ asset('js/scrollNavigation.js') }}"></script>
 </head>
 <body>
     <!-- Navbar Bootstrap -->
@@ -79,29 +88,29 @@
         </div>
     </div>
 
-    <!-- PENTING: Keluar dari container Bootstrap untuk grid produk -->
-    </div> <!-- Tutup container dari filter section -->
 
-<div class="container py-4">
-    {{-- <h1 class="h4 fw-bold mb-4">Produk Kami</h1> --}}
-    <div class="row g-3">
+
+  <div class="container py-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 product-list">
         @foreach($products as $product)
-            <div class="col-12 col-sm-6 col-md-3 col-lg-2"> <!-- max 6 item per row -->
-                <div class="card h-100">
-                    <div class="ratio ratio-1x1">
-                        <img src="{{ asset($product->gambarUtama->path_gambar) }}"
-                             class="card-img-top object-fit-cover"
-                             alt="{{ $product->nama_produk }}">
-                    </div>
-                    <div class="card-body p-2">
-                        <h5 class="card-title fs-6 text-truncate">{{ $product->nama_produk }}</h5>
-                        <p class="card-text text-muted small">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
-                    </div>
-                </div>
+            <div class="col">
+                <div class="produk-baru-item card h-100 overflow-hidden">
+    <div class="ratio ratio-1x1">
+        <img src="{{ asset($product->gambarUtama->path_gambar) }}"
+             alt="{{ $product->nama_produk }}"
+             class="card-img-top object-fit-cover w-100 h-100 rounded">
+    </div>
+    <div class="card-body p-2">
+        <h5 class="card-title">{{ $product->nama_produk }}</h5>
+        <p class="card-text text-danger">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
+    </div>
+</div>
+
             </div>
         @endforeach
     </div>
 </div>
+
 
 </body>
 </html>

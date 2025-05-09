@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="header" class="navbar navbar-expand-lg bg-dark">
+    <nav id="header" class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('mainIMG/logoDinoyo.png') }}" alt="Dinoyo Camera Logo" class="img-fluid" style="max-width: 90px;">
