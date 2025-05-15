@@ -27,13 +27,13 @@ html, body {
     border-bottom: 1px solid white;
 }
 
-.navbar-toggler.always-visible {
+/* .navbar-toggler.always-visible {
     display: block !important;
-}
+} */
 
 @media (min-width: 992px) {
     .navbar-collapse {
-        display: flex !important;
+        display: flex;
     }
 }
 
@@ -68,7 +68,7 @@ html, body {
 
 #Kategori-Display img:hover {
     transform: scale(1.1);
-}   
+}
 
 .whatsapp-float {
     position: fixed;
