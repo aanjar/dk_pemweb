@@ -21,7 +21,7 @@
 
     <section id="filter-section" class="py-4 bg-light border-bottom">
         <div class="container">
-            <form action="{{ route('produk.index') }}" method="GET" class="row row-cols-auto align-items-center g-md-3 g-2">
+            <form action="" method="" class="row row-cols-auto align-items-center g-md-3 g-2">
                 <div class="col">
                     <input type="text" class="form-control" name="search" placeholder="Cari produk...">
                 </div>
