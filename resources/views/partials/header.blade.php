@@ -14,7 +14,6 @@
                     <li class="nav-item"><a class="nav-link text-white" href="/contact">Kontak</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about">Tentang Kami</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>

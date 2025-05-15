@@ -29,9 +29,19 @@
                 <div class="col">
                     <select class="form-select" name="kategori">
                         <option value="">Semua Kategori</option>
-                        @foreach ($kategoris as $kategori)
-                            <option value="{{ $kategori->id }}" {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>{{ $kategori->nama_kategori }}</option>
-                        @endforeach
+
+                        <option value="kamera">Kamera DSLR/option>
+                        <option value="lensa">Kamera Mirrorless</option>
+                        <option value="tripod">Kamera Digital</option>
+                        <option value="aksesoris">Handycam</option>
+                        <option value="studio-kit">Kamera Instan</option>
+                        <option value="tas-kamera">Kamera Lain</option>
+                        <option value="filter">Lensa</option>
+                        <option value="camera-film">Baterai/Charger</option>
+                        <option value="used-item">Kartu Memori/option>
+                        <option value="video">Aksesoris Lain</option>
+                        <option value="lain-lain">Lain-lain</option>
+
                     </select>
                 </div>
                 <div class="col">
@@ -67,16 +77,16 @@
         <div class="container">
             <div class="d-flex flex-wrap gap-2">
                 <button type="button" class="btn btn-outline-dark category-btn" data-category="all">Semua Kategori</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="kamera">Kamera</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="lensa">Lensa</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="tripod">Tripod</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="aksesoris">Aksesoris</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="studio-kit">Studio Kit</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="tas-kamera">Tas & Case</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="filter">Filter</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="camera-film">Camera Film</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="used-item">Used Item</button>
-                <button type="button" class="btn btn-outline-dark category-btn" data-category="video">Video</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="kamera">Kamera DSLR</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="lensa">Kamera Mirrorless</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="tripod">Kamera Digital</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="aksesoris">Handycam</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="studio-kit">Kamera Instan</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="tas-kamera">Kamera Lain</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="filter">Lensa</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="camera-film">Baterai/Charger</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="used-item">Kartu Memori</button>
+                <button type="button" class="btn btn-outline-dark category-btn" data-category="video">Aksesoris Lain</button>
                 <button type="button" class="btn btn-outline-dark category-btn" data-category="lain-lain">Lain-lain</button>
             </div>
         </div>
