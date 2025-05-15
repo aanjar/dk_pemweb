@@ -58,19 +58,17 @@
     </section>
     <section id="Kategori-Display" class="py-4">
         <div class="container">
-            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3">
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Camera.jpg" alt="Camera" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Video.jpg" alt="Video" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Lens.jpg" alt="Lens" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Tripod.jpg" alt="Tripod" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Studio_Kit.jpg" alt="Studio Kit" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Bag_Case.jpg" alt="Bag Case" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Filter.jpg" alt="Filter" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Accessories.jpg" alt="Accessories" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Camera_Film.jpg" alt="Camera Film" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Used_Item.jpg" alt="Used Item" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Used_Item.jpg" alt="Used Item" class="img-fluid"></div>
-                <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/categories/Used_Item.jpg" alt="Used Item" class="img-fluid"></div>
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
+                <div class="col"><img src="{{ asset('mCategoryIMG/1.png') }}" alt="Camera" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/2.png') }}" alt="Video" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/3.png') }}" alt="Lens" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/4.png') }}" alt="Tripod" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/5.png') }}" alt="Studio Kit" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/6.png') }}" alt="Bag Case" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/7.png') }}" alt="Filter" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/8.png') }}" alt="Accessories" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/9.png') }}" alt="Camera Film" class="img-fluid"></div>
+                <div class="col"><img src="{{ asset('mCategoryIMG/10.png') }}" alt="Used Item" class="img-fluid"></div>
             </div>
         </div>
     </section>
