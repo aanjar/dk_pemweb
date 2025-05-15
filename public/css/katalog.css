@@ -1,0 +1,110 @@
+/* catalogPage.css */
+
+/* Filter Section */
+#filter-section .form-control,
+#filter-section .form-select,
+#filter-section .btn {
+    border-radius: 10px;
+}
+
+/* Category Buttons */
+#category-buttons .category-btn {
+    white-space: nowrap;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+#category-buttons .category-btn:hover {
+    transform: translateY(-2px);
+    background-color: #343a40;
+    color: white;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.whatsapp-float img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+.whatsapp-float:hover img {
+    transform: scale(1.1);
+}
+.whatsapp-float span {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: #25D366;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.whatsapp-float:hover span {
+    display: block;
+    transition-duration: 500ms;
+}
+
+@media (max-width: 576px) {
+    #category-buttons {
+        flex-direction: column;
+    }
+    #category-buttons .category-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Product Grid */
+#product-grid .produk-item {
+    border: 1px solid rgba(7, 13, 13, 0.1);
+    border-radius: 15px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+#product-grid .produk-item:hover {
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+#product-grid .produk-item .card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batasi hingga 2 baris */
+    -webkit-box-orient: vertical;
+}
+
+#product-grid .produk-item .card-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#product-grid .produk-item small {
+    font-size: 0.75rem;
+}
+
+/* Responsiveness for Product Grid */
+@media (max-width: 576px) {
+    #product-grid .row-cols-2 {
+        --bs-grid-columns: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    #product-grid .row-cols-md-3 {
+        --bs-grid-columns: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    #product-grid .row-cols-lg-4 {
+        --bs-grid-columns: 4;
+    }
+}
