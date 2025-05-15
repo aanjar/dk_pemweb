@@ -14,16 +14,16 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         DB::table('kategori')->insert([
-            ['nama_kategori' => 'DSLR Camera'],
-            ['nama_kategori' => 'Mirrorless Camera'],
-            ['nama_kategori' => 'Digital/Pocket Camera'],
+            ['nama_kategori' => 'Kamera DSLR'],
+            ['nama_kategori' => 'Kamera Mirrorless'],
+            ['nama_kategori' => 'Kamera Digital'],
             ['nama_kategori' => 'Handycam'],
-            ['nama_kategori' => 'Instant Camera'],
-            ['nama_kategori' => 'Other Camera'],
-            ['nama_kategori' => 'Lens'],
-            ['nama_kategori' => 'Battery/Charger'],
-            ['nama_kategori' => 'Memory Card'],
-            ['nama_kategori' => 'Other Accesories'],
+            ['nama_kategori' => 'Kamera Instan'],
+            ['nama_kategori' => 'Kamera Lain'],
+            ['nama_kategori' => 'Lensa'],
+            ['nama_kategori' => 'Baterai/Charger'],
+            ['nama_kategori' => 'Kartu Memori'],
+            ['nama_kategori' => 'Aksesoris Lain'],
         ]);
     }
 }
