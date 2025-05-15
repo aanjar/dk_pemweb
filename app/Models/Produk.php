@@ -16,23 +16,33 @@ class Produk extends Model
         'id_kategori',
         'nama_produk',
         'harga_jual',
+        'is_main',
     ];
 
-    // Relasi ke kategori
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
 
-    // Relasi ke detail produk
     public function detail()
     {
         return $this->hasOne(DetailProduk::class, 'id_produk', 'id');
     }
 
-    // Relasi ke banyak gambar
     public function gambar()
     {
         return $this->hasMany(GambarProduk::class, 'id_produk', 'id');
     }
+
+    public function gambarUtama()
+    {
+        return $this->hasOne(GambarProduk::class, 'id_produk', 'id')->where('is_main', true);
+    }
+
+
+    public function semuaGambar()
+    {
+        return $this->hasMany(GambarProduk::class);
+    }
+
 }

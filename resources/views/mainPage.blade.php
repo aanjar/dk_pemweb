@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="header" class="navbar navbar-expand-lg bg-dark">
+    <nav id="header" class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('mainIMG/logoDinoyo.png') }}" alt="Dinoyo Camera Logo" class="img-fluid" style="max-width: 90px;">
@@ -27,10 +27,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link text-white" href="">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="">Katalog</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/katalog">Katalog</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="/contact">Kontak</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about">Tentang Kami</a></li>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -307,5 +308,13 @@
             </div>
         </div>
     </footer>
+    <!-- WhatsApp Float Icon -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/6285226158143" target="_blank">
+            <img src="https://brandlogos.net/wp-content/uploads/2013/04/whatsapp-logo-symbol-vector-400x400.png" alt="WhatsApp">
+        </a>
+        <span>Our Contact</span>
+    </div>
 </body>
 </html>
+
