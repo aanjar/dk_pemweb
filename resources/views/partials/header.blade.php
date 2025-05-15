@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="/katalog">Katalog</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="/contact">Kontak</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="about">Tentang Kami</a></li>
