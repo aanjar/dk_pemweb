@@ -29,18 +29,9 @@
                 <div class="col">
                     <select class="form-select" name="kategori">
                         <option value="">Semua Kategori</option>
-
-                        <option value="kamera">Kamera DSLR/option>
-                        <option value="lensa">Kamera Mirrorless</option>
-                        <option value="tripod">Kamera Digital</option>
-                        <option value="aksesoris">Handycam</option>
-                        <option value="studio-kit">Kamera Instan</option>
-                        <option value="tas-kamera">Kamera Lain</option>
-                        <option value="filter">Lensa</option>
-                        <option value="camera-film">Baterai/Charger</option>
-                        <option value="used-item">Kartu Memori/option>
-                        <option value="video">Aksesoris Lain</option>
-                        <option value="lain-lain">Lain-lain</option>
+                        @foreach ($kategoris as $kategori)
+                            <option value="{{ $kategori->id }}" {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>{{ $kategori->nama_kategori }}</option>
+                        @endforeach
 
                     </select>
                 </div>
