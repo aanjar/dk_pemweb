@@ -19,48 +19,42 @@
 <body>
     @include('partials.header')
 
+    <!-- Form Filter -->
     <section id="filter-section" class="py-4 bg-light border-bottom">
         <div class="container">
-            <form action="" method="" class="row row-cols-auto align-items-center g-md-3 g-2">
+            <form action="{{ route('product.index') }}" method="GET" class="row row-cols-auto align-items-center g-md-3 g-2">
                 <div class="col">
-                    <input type="text" class="form-control" name="search" placeholder="Cari produk...">
+                    <input type="text" class="form-control" name="search" placeholder="Cari produk..." value="{{ $search ?? '' }}">
                 </div>
                 <div class="col">
                     <select class="form-select" name="kategori">
                         <option value="">Semua Kategori</option>
-                        <option value="kamera">Kamera DSLR/option>
-                        <option value="lensa">Kamera Mirrorless</option>
-                        <option value="tripod">Kamera Digital</option>
-                        <option value="aksesoris">Handycam</option>
-                        <option value="studio-kit">Kamera Instan</option>
-                        <option value="tas-kamera">Kamera Lain</option>
-                        <option value="filter">Lensa</option>
-                        <option value="camera-film">Baterai/Charger</option>
-                        <option value="used-item">Kartu Memori/option>
-                        <option value="video">Aksesoris Lain</option>
-                        <option value="lain-lain">Lain-lain</option>
+                        @foreach ($kategoris as $kategori)
+                            <option value="{{ $kategori->id }}" {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>{{ $kategori->nama_kategori }}</option>
+                        @endforeach
+
                     </select>
                 </div>
                 <div class="col">
                     <select class="form-select" name="urutkan">
                         <option value="">Urutkan Berdasarkan</option>
-                        <option value="terbaru">Terbaru</option>
-                        <option value="termurah">Harga Termurah</option>
-                        <option value="termahal">Harga Termahal</option>
-                        <option value="populer">Paling Populer</option>
-                        <option value="a-z">A - Z</option>
-                        <option value="z-a">Z - A</option>
+                        <option value="terbaru" {{ $urutkan == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
+                        <option value="termurah" {{ $urutkan == 'termurah' ? 'selected' : '' }}>Harga Termurah</option>
+                        <option value="termahal" {{ $urutkan == 'termahal' ? 'selected' : '' }}>Harga Termahal</option>
+                        <option value="populer" {{ $urutkan == 'populer' ? 'selected' : '' }}>Paling Populer</option>
+                        <option value="a-z" {{ $urutkan == 'a-z' ? 'selected' : '' }}>A - Z</option>
+                        <option value="z-a" {{ $urutkan == 'z-a' ? 'selected' : '' }}>Z - A</option>
                     </select>
                 </div>
                 <div class="col">
                     <select class="form-select" name="price_range">
                         <option value="">Rentang Harga</option>
-                        <option value="0-500000">Di bawah Rp 500.000</option>
-                        <option value="500000-1000000">Rp 500.000 - Rp 1.000.000</option>
-                        <option value="1000000-3000000">Rp 1.000.000 - Rp 3.000.000</option>
-                        <option value="3000000-5000000">Rp 3.000.000 - Rp 5.000.000</option>
-                        <option value="5000000-10000000">Rp 5.000.000 - Rp 10.000.000</option>
-                        <option value="10000000-up">Di atas Rp 10.000.000</option>
+                        <option value="0-500000" {{ $priceRange == '0-500000' ? 'selected' : '' }}>Di bawah Rp 500.000</option>
+                        <option value="500000-1000000" {{ $priceRange == '500000-1000000' ? 'selected' : '' }}>Rp 500.000 - Rp 1.000.000</option>
+                        <option value="1000000-3000000" {{ $priceRange == '1000000-3000000' ? 'selected' : '' }}>Rp 1.000.000 - Rp 3.000.000</option>
+                        <option value="3000000-5000000" {{ $priceRange == '3000000-5000000' ? 'selected' : '' }}>Rp 3.000.000 - Rp 5.000.000</option>
+                        <option value="5000000-10000000" {{ $priceRange == '5000000-10000000' ? 'selected' : '' }}>Rp 5.000.000 - Rp 10.000.000</option>
+                        <option value="10000000-up" {{ $priceRange == '10000000-up' ? 'selected' : '' }}>Di atas Rp 10.000.000</option>
                     </select>
                 </div>
                 <div class="col">
@@ -70,7 +64,7 @@
         </div>
     </section>
 
-    <section id="category-buttons" class="py-4">
+     {{-- <section id="category-buttons" class="py-4">
         <div class="container">
             <div class="d-flex flex-wrap gap-2">
                 <button type="button" class="btn btn-outline-dark category-btn" data-category="all">Semua Kategori</button>
@@ -87,19 +81,30 @@
                 <button type="button" class="btn btn-outline-dark category-btn" data-category="lain-lain">Lain-lain</button>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section id="product-grid" class="py-4">
         <div class="container">
-            @if ($kategoris->isEmpty())
-                <p class="text-center">Tidak ada kategori atau produk yang tersedia.</p>
-            @else
+            <!-- Tombol Filter Kategori -->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                <button type="button" class="btn btn-outline-dark category-btn {{ !request('kategori') ? 'active' : '' }}" data-category="all">Semua Kategori</button>
                 @foreach ($kategoris as $kategori)
-                    @if ($productsByCategory[$kategori->nama_kategori]->isNotEmpty())
+                    <button type="button" class="btn btn-outline-dark category-btn {{ request('kategori') == $kategori->id ? 'active' : '' }}" data-category="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</button>
+                @endforeach
+            </div>
+
+            <!-- Produk -->
+            @if ($kategoris->isEmpty())
+                <p class="text-center">Tidak ada kategori yang tersedia.</p>
+            @elseif (empty($productsByCategory))
+                <p class="text-center">Tidak ada produk untuk kategori yang dipilih.</p>
+            @else
+                @foreach ($productsByCategory as $nama_kategori => $produk_list)
+                    @if ($produk_list->isNotEmpty())
                         <div class="mb-4">
-                            <h2 class="section-title mb-3">{{ $kategori->nama_kategori }}</h2>
+                            <h2 class="section-title mb-3">{{ $nama_kategori }}</h2>
                             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 product-list">
-                                @foreach ($productsByCategory[$kategori->nama_kategori] as $product)
+                                @foreach ($produk_list as $product)
                                     <div class="col">
                                         <div class="produk-baru-item card h-100">
                                             @if ($product->gambarUtama)
@@ -114,6 +119,7 @@
                                             <div class="card-body p-2">
                                                 <h6 class="card-title fw-bold mb-1">{{ $product->nama_produk }}</h6>
                                                 <p class="card-text text-danger fw-semibold">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
+                                                {{-- <p class="card-text small">{{ Str::limit($product->deskripsi_produk, 100) }}</p> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -125,6 +131,34 @@
             @endif
         </div>
     </section>
+
+    <script>
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                const url = new URL(window.location.href);
+                if (category === 'all') {
+                    url.searchParams.delete('kategori');
+                } else {
+                    url.searchParams.set('kategori', category);
+                }
+                window.location.href = url.toString();
+            });
+        });
+
+//         document.querySelectorAll('.category-btn').forEach(button => {
+//             button.addEventListener('click', function() {
+//                 const categoryId = this.getAttribute('data-category');
+//                 document.querySelectorAll('.category-section').forEach(section => {
+//                     if (categoryId === 'all' || section.getAttribute('data-category-id') === categoryId) {
+//                         section.style.display = 'block';
+//                     } else {
+//                         section.style.display = 'none';
+//                     }
+//                 });
+//             });
+// });
+    </script>
 
     <!-- Footer -->
     @include('partials.footer')
