@@ -46,13 +46,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('mainIMG/Sample1.png') }}" alt="Promotion 1" class="d-block w-100">
+                        <img src="{{ asset('mainIMG/sample1.png') }}" alt="Promotion 1" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('mainIMG/Sample2.png') }}" alt="Promotion 2" class="d-block w-100">
+                        <img src="{{ asset('mainIMG/sample2.png') }}" alt="Promotion 2" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('mainIMG/Sample3.png') }}" alt="Promotion 3" class="d-block w-100">
+                        <img src="{{ asset('mainIMG/sample3.png') }}" alt="Promotion 3" class="d-block w-100">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
@@ -264,7 +264,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <img src="{{ asset('mainIMG/logo_dinoyow.png') }}" alt="Dinoyo Camera Logo" class="img-fluid mb-3" style="max-width: 80%;">
+                    <img src="{{ asset('mainIMG/logoDinoyo.png') }}" alt="Dinoyo Camera Logo" class="img-fluid mb-3" style="max-width: 80%;">
                     <p>Lihat semua outlet Dinoyo Camera</p>
                     <p>SMS/Whatsapp</p>
                     <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
