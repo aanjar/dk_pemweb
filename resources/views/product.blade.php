@@ -17,24 +17,7 @@
     <script type="module" src="{{ asset('js/scrollNavigation.js') }}"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{{ asset('mainIMG/logoDinoyo.png') }}" alt="Dinoyo Camera Logo" class="img-fluid" style="max-width: 90px;">
-            </a>
-            <button class="navbar-toggler always-visible" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="/">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link text-white active" href="/catalog">Katalog</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="/contact">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="/about">Tentang Kami</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('partials.header')
 
     <section id="filter-section" class="py-4 bg-light border-bottom">
         <div class="container">
@@ -855,59 +838,9 @@
     </section>
 
     <!-- Footer -->
-    <footer id="footer" class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <img src="{{ asset('mainIMG/logo_dinoyow.png') }}" alt="Dinoyo Camera Logo" class="img-fluid mb-3" style="max-width: 80%;">
-                    <p>Lihat semua outlet Dinoyo Camera</p>
-                    <p>SMS/Whatsapp</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                    <p>+62 853 6730 1245 - CS Dinoyo Malang</p>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <h2 class="footer-title">Customer Service</h2>
-                    <div class="cs-detail">
-                        <a href="" class="d-block text-white text-decoration-none mb-2">Contact Us</a>
-                        <a href="" class="d-block text-white text-decoration-none">Feedback</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <h2 class="footer-title">About Us</h2>
-                    <div class="cs-detail">
-                        <a href="" class="d-block text-white text-decoration-none mb-2">About Dinoyo Camera</a>
-                        <a href="" class="d-block text-white text-decoration-none">Store Location</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <h2 class="footer-title">Marketplace</h2>
-                    <div class="logo-medplace d-flex flex-wrap gap-3">
-                        <img src="https://admin.focusnusantara.com/media/wysiwyg/shopee.png" alt="Shopee" class="img-fluid" style="max-width: 60px;">
-                        <img src="https://admin.focusnusantara.com/media/wysiwyg/tokopedia.png" alt="Tokopedia" class="img-fluid" style="max-width: 60px;">
-                        <img src="https://admin.focusnusantara.com/media/wysiwyg/blibli.png" alt="Blibli" class="img-fluid" style="max-width: 60px;">
-                    </div>
-                    <div id="Logo-Medsos" class="mt-4">
-                        <h2 class="footer-title">Find Us</h2>
-                        <div class="logo-medplace d-flex flex-wrap gap-3">
-                            <img src="{{ asset('mainIMG/Instagram.svg') }}" alt="Instagram" class="img-fluid" style="max-width: 30px;">
-                            <img src="{{ asset('mainIMG/Facebook.svg') }}" alt="Facebook" class="img-fluid" style="max-width: 30px;">
-                            <img src="{{ asset('mainIMG/Twitter.svg') }}" alt="Twitter" class="img-fluid" style="max-width: 30px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('partials.footer')
+
     <!-- WhatsApp Float Icon -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/6285226158143" target="_blank">
-            <img src="https://brandlogos.net/wp-content/uploads/2013/04/whatsapp-logo-symbol-vector-400x400.png" alt="WhatsApp">
-        </a>
-        <span>Our Contact</span>
-    </div>
+    @include('partials.floater')
 </body>
 </html>
