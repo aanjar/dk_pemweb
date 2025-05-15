@@ -24,11 +24,6 @@ class Produk extends Model
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
 
-    public function detail()
-    {
-        return $this->hasOne(DetailProduk::class, 'id_produk', 'id');
-    }
-
     public function gambar()
     {
         return $this->hasMany(GambarProduk::class, 'id_produk', 'id');
