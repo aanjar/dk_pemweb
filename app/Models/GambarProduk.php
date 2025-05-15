@@ -11,7 +11,7 @@ class GambarProduk extends Model
 
     protected $table = 'gambar_produk';
 
-    protected $fillable = ['id_produk', 'path_gambar'];
+    protected $fillable = ['id_produk', 'path_gambar', 'is_main'];
 
     public function produk()
     {

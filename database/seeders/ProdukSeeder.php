@@ -33,39 +33,24 @@ class ProdukSeeder extends Seeder
             'harga_jual' => 900000,
             'stok_produk' => 1,
             'status' => 'Second',
-            'deskripsi_produk' => 'TYPE  : Handycam Panasonic SDR S26
-
-HARGA : 900.000
-
-KONDISI :
-● Layar Flip 180°
-● Flash Baik
-● Tutup USB Baik
-● Tombol Baik
-● Body Paintlos
-● Jamur Tipis / Debu Micro
+            'deskripsi_produk' => 'KONDISI :
+- Layar Flip 180°
+- Flash Baik
+- Tutup USB Baik
+- Tombol Baik
+- Body Paintlos
+- Jamur Tipis / Debu Micro
 (Tidak Berpengaruh pada Fungsi dan Hasil)
-● AF/MF Baik
-● LCD Baik dan Bersih
-● Fungsional Normal
+- AF/MF Baik
+- LCD Baik dan Bersih
+- Fungsional Normal
 
 KELENGKAPAN:
-● Kamera
-● Lensa
-● Baterai
-● Charger
-● Nota Pembelian Dinoyo Kamera
-
-Kode Barang : #1274_DK
-
-Jual beli kamera malang raya
-Kalian juga bisa jual kamera anda di toko kami, langsung aja ke Dinoyo Kamera
-
-Barang siap pakai, silahkan di order
-
-Untuk memaksimalkan pengiriman :
-● Luar pulau jawa Wajib pakai JNE
-● Dalam pulau Jawa wajib pakai JNT'
+- Kamera
+- Lensa
+- Baterai
+- Charger
+- Nota Pembelian Dinoyo Kamera'
         ]);
 
         $gambarList = [

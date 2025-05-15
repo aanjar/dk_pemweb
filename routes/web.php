@@ -20,3 +20,4 @@ Route::get("/", [PageController::class,"index"]);
 Route::get("/about", [PageController::class,"about"]);
 Route::get("/contact", [PageController::class,"contact"]);
 Route::get("/katalog", [ProductController::class, "index"])->name('product.index');
+Route::get("/katalog/{id}", [ProductController::class, "show"])->name('product.show');
