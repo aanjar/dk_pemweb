@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,5 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [PageController::class,"index"]);
 Route::get("/about", [PageController::class,"about"]);
 Route::get("/contact", [PageController::class,"contact"]);
+Route::get("/admin", [PageController::class,"admin"]);
 Route::get("/katalog", [ProductController::class, "index"])->name('product.index');
 Route::get("/katalog/{id}", [ProductController::class, "show"])->name('product.show');
+Route::resource('admin', AdminProductController::class);

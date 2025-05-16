@@ -21,5 +21,13 @@ class PageController extends Controller
     public function katalog(){
         return view("product");
     }
+
+    public function admin(){
+        return view("admin.index");
+    }
+
+    public function edit(){
+        return view("admin.edit");
+    }
 }
 
