@@ -3,11 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class PageController extends Controller
 {
     public function index(){
-        return view("mainPage");
+        $latestProducts = Produk::with('gambarUtama')
+            ->latest()
+            ->take(6)
+            ->get();
+
+        $produkUnggulan = Produk::with('gambarUtama')
+            ->where('grade', 'Unggulan')
+            ->take(6)
+            ->get();
+
+        return view('mainPage', compact('latestProducts', 'produkUnggulan'));
+
     }
 
     public function about(){

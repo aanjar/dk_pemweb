@@ -49,6 +49,10 @@ class ProductController extends Controller
             case 'termahal':
                 $query->orderBy('harga_jual', 'desc');
                 break;
+            case 'rekomendasi':
+                $query->where('grade', 'Unggulan')
+                    ->orderBy('created_at', 'desc');
+                break;
             case 'terbaru':
             default:
                 $query->orderBy('created_at', 'desc');

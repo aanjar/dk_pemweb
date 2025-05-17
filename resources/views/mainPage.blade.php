@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/mainPage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/katalog.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="{{ asset('js/loadingScreen.js') }}"></script>
     <script type="module" src="{{ asset('js/productHover.js') }}"></script>
@@ -73,105 +76,110 @@
         </div>
     </section>
 
-    <!-- New Products -->
     <section id="Kategori2" class="py-4">
         <div class="container d-flex justify-content-between align-items-center">
             <h2 class="section-title mb-0">Produk Terbaru</h2>
-            <a href="" class="text-decoration-none">Lihat Selengkapnya</a>
-        </div>
-    </section>
-    <section class="py-4">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 product-list">
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="SONY FE16mm" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">SONY FE16mm</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="PANASONIC Lumix" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">PANASONIC Lumix</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="Sigma BF Mirrorless" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">Sigma BF Mirrorless</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="OM SYSTEM OM" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">OM SYSTEM OM</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="{{ route('product.index', ['sort' => 'terbaru']) }}" class="text-decoration-none">Lihat Selengkapnya</a>
         </div>
     </section>
 
-    <!-- Monthly Promotions -->
-    <section id="Kategori3" class="py-4">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h2 class="section-title mb-0">Promo Bulanan</h2>
-            <a href="" class="text-decoration-none">Lihat Selengkapnya</a>
-        </div>
-    </section>
     <section class="py-4">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 product-list">
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="SONY FE16mm" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">SONY FE16mm</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
+            @if ($latestProducts->isEmpty())
+                <p class="text-center text-muted">Tidak ada produk terbaru saat ini.</p>
+            @else
+                <div class="row g-4">
+        @foreach ($latestProducts as $product)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
+                                <div class="produk-baru-item card h-100 border-0 shadow">
+                                    <div class="img-wrapper position-relative">
+                                        @if ($product->grade === 'Unggulan')
+                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
+                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            </span>
+                                        @endif
+                                        @if ($product->gambarUtama)
+                                            <img src="{{ asset($product->gambarUtama->path_gambar) }}"
+                                                alt="{{ $product->nama_produk }}"
+                                                class="card-img-top" loading="lazy">
+                                        @else
+                                            <img src="{{ asset('images/placeholder.jpg') }}"
+                                                alt="No Image"
+                                                class="card-img-top">
+                                        @endif
+                                    </div>
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                            {{ $product->nama_produk }}
+                                        </h6>
+                                        <p class="card-text text-danger fw-semibold mb-0">
+                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="PANASONIC Lumix" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">PANASONIC Lumix</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="Sigma BF Mirrorless" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">Sigma BF Mirrorless</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="produk-baru-item card h-100">
-                        <img src="https://admin.focusnusantara.com/media/catalog/product/cache/6ed58d7bcc92d46b5b7dc5fc5ce62a7b/c/p/cpn38864-panasonic-lumix-dc-tz99-_dc-ft99ga-k_-black-web_d1_1.jpg" alt="OM SYSTEM OM" class="card-img-top">
-                        <div class="card-body">
-                            <h2 class="card-title">OM SYSTEM OM</h2>
-                            <p class="card-text text-danger">Rp30.000,00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </section>
+
+    <section id="Kategori2" class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2 class="section-title mb-0">Rekomendasi</h2>
+            <a href="{{ route('product.index', ['sort' => 'rekomendasi']) }}" class="text-decoration-none">Lihat Selengkapnya</a>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            @if ($latestProducts->isEmpty())
+                <p class="text-center text-muted">Tidak ada produk terbaru saat ini.</p>
+            @else
+                <div class="row g-4">
+        @foreach ($produkUnggulan as $product)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
+                                <div class="produk-baru-item card h-100 border-0 shadow">
+                                    <div class="img-wrapper position-relative">
+                                        @if ($product->grade === 'Unggulan')
+                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
+                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            </span>
+                                        @endif
+                                        @if ($product->gambarUtama)
+                                            <img src="{{ asset($product->gambarUtama->path_gambar) }}"
+                                                alt="{{ $product->nama_produk }}"
+                                                class="card-img-top" loading="lazy">
+                                        @else
+                                            <img src="{{ asset('images/placeholder.jpg') }}"
+                                                alt="No Image"
+                                                class="card-img-top">
+                                        @endif
+                                    </div>
+
+
+
+
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                            {{ $product->nama_produk }}
+                                        </h6>
+                                        <p class="card-text text-danger fw-semibold mb-0">
+                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </section>
+
 
     <!-- Brands -->
     <section id="Brand" class="py-4">

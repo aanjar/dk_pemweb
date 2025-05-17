@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('stok_produk');
             $table->text('deskripsi_produk')->nullable();
             $table->enum('status', ['Second', 'Baru']);
+            $table->enum('grade', ['Unggulan', 'Standar', 'Minus'])->default('Standar');
             $table->timestamps();
 
             $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');

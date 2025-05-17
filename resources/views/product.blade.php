@@ -16,45 +16,6 @@
     <script type="module" src="{{ asset('js/loadingScreen.js') }}"></script>
     <script type="module" src="{{ asset('js/productHover.js') }}"></script>
     <script type="module" src="{{ asset('js/scrollNavigation.js') }}"></script>
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .card-img-top {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-        .card-title {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            position: relative;
-        }
-        .card-title:hover::after {
-            content: attr(data-fullname);
-            position: absolute;
-            top: -30px;
-            left: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            white-space: nowrap;
-            z-index: 10;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 767px) {
-            /* .card-img-top {
-                height: 200px;
-            } */
-            .card-title:hover::after {
-                display: none;
-            }
-        }
-
-
-    </style>
 </head>
 <body>
     @include('partials.header')
@@ -104,29 +65,33 @@
             @if ($products->isEmpty())
                 <p class="text-center text-muted">Tidak ada produk yang tersedia.</p>
             @else
-                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+
                     @foreach ($products as $product)
-                        <div class="col">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
                                 <div class="produk-baru-item card h-100 border-0 shadow">
-                                    <div class="ratio-box">
-
+                                   <div class="img-wrapper position-relative">
+                                        @if ($product->grade === 'Unggulan')
+                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
+                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            </span>
+                                        @endif
                                         @if ($product->gambarUtama)
-                                        <img src="{{ asset($product->gambarUtama->path_gambar) }}"
-                                        alt="{{ $product->nama_produk }}"
-                                        class="card-img-top rounded-top object-fit-cover" loading="lazy">
+                                            <img src="{{ asset($product->gambarUtama->path_gambar) }}"
+                                                alt="{{ $product->nama_produk }}"
+                                                class="card-img-top" loading="lazy">
                                         @else
-                                        <img src="{{ asset('images/placeholder.jpg') }}"
-                                        alt="No Image"
-                                        class="card-img-top rounded-top">
+                                            <img src="{{ asset('images/placeholder.jpg') }}"
+                                                alt="No Image"
+                                                class="card-img-top">
                                         @endif
                                     </div>
-
-                                    <div class="card-body rounded-bottom p-0">
-                                        <div class="p-2">
-                                            <h6 class="card-title fw-bold mb-1" data-fullname="{{ $product->nama_produk }}">{{ $product->nama_produk }}</h6>
-                                            <p class="card-text text-danger fw-semibold">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
-                                        </div>
+                                    <div class="card-body p-2 d-flex flex-column justify-content-center">
+                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                            {{ $product->nama_produk }}
+                                        </h6>
+                                        <p class="card-text text-danger fw-semibold mb-0">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -179,6 +144,13 @@
                 input.form.submit();
             }, 500);
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
     </script>
 </body>
 </html>
