@@ -17,60 +17,47 @@ class ProductController extends Controller
 
         return view('product-detail', compact('produk'));
     }
-    
+
     public function index(Request $request)
         {
-            // Ambil semua kategori
-            $kategoris = Kategori::all();
+          // Ambil semua kategori untuk dropdown
+        $kategoris = Kategori::all();
 
-            // Ambil parameter dari form
-            $search = $request->query('search');
-            $kategoriFilter = $request->query('kategori');
-            $sort = $request->query('sort', []);
+        // Ambil parameter dari request
+        $search = $request->query('search');
+        $kategoriFilter = $request->query('kategori');
+        $sort = $request->query('sort', 'terbaru'); // Default sort: terbaru
 
-            // Inisialisasi query produk
-            $query = Produk::with('gambarUtama');
+        // Inisialisasi query produk
+        $query = Produk::with(['gambarUtama', 'kategori']);
 
-            // Filter pencarian
-            if ($search) {
-                $query->where('nama_produk', 'LIKE', '%' . $search . '%');
-            }
+        // Filter pencarian
+        if ($search) {
+            $query->where('nama_produk', 'LIKE', '%' . $search . '%');
+        }
 
-            // Filter kategori
-            if ($kategoriFilter && $kategoriFilter !== '') {
-                $query->where('id_kategori', $kategoriFilter);
-            }
+        // Filter kategori
+        if ($kategoriFilter && $kategoriFilter !== '') {
+            $query->where('id_kategori', $kategoriFilter);
+        }
 
-            // Ambil produk
-            $produk_list = $query->get();
+        // Filter sort
+        switch ($sort) {
+            case 'termurah':
+                $query->orderBy('harga_jual', 'asc');
+                break;
+            case 'termahal':
+                $query->orderBy('harga_jual', 'desc');
+                break;
+            case 'terbaru':
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
 
-            // Kelompokkan produk berdasarkan kategori
-            $productsByCategory = [];
-            foreach ($kategoris as $kategori) {
-                $produk_kategori = $produk_list->where('id_kategori', $kategori->id);
+        // Pagination (8 produk per halaman)
+        $products = $query->paginate(15);
 
-                // Terapkan sorting per kategori
-                $sortOption = $sort[$kategori->nama_kategori] ?? 'terbaru';
-                switch ($sortOption) {
-                    case 'terbaru':
-                        $produk_kategori = $produk_kategori->sortByDesc('created_at');
-                        break;
-                    case 'termurah':
-                        $produk_kategori = $produk_kategori->sortBy('harga_jual');
-                        break;
-                    case 'termahal':
-                        $produk_kategori = $produk_kategori->sortByDesc('harga_jual');
-                        break;
-                    case 'a-z':
-                        $produk_kategori = $produk_kategori->sortBy('nama_produk');
-                        break;
-                    default:
-                        $produk_kategori = $produk_kategori->sortByDesc('created_at');
-                }
-
-                $productsByCategory[$kategori->nama_kategori] = $produk_kategori;
-            }
-
-            return view('product', compact('kategoris', 'productsByCategory', 'search', 'kategoriFilter', 'sort'));
+        return view('product', compact('products', 'kategoris', 'search', 'kategoriFilter', 'sort'));
         }
 }

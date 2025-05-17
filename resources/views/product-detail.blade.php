@@ -9,61 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/mainPage.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/mainPage.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/detail-produk.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="{{ asset('js/loadingScreen.js') }}"></script>
     <script type="module" src="{{ asset('js/productHover.js') }}"></script>
     <script type="module" src="{{ asset('js/scrollNavigation.js') }}"></script>
     @php
-        $nomorWA = '6281234567890'; // Ganti nomor WA kamu
+        $nomorWA = '6285283800265'; // Ganti nomor WA kamu
         $pesan = "Apakah {$produk->nama_produk} tersedia?";
         $linkWA = "https://wa.me/{$nomorWA}?text=" . urlencode($pesan);
     @endphp
-    <style>
-        .description-box {
-            font-size: 13px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 6px;
-            /* white-space: pre-wrap; */
-            scrollbar-width: thin;
-            scrollbar-color: #888 #f5f5f5;
-        }
-        .description-box::-webkit-scrollbar {
-            width: 8px;
-        }
-        .description-box::-webkit-scrollbar-track {
-            background: #f5f5f5;
-        }
-        .description-box::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-        .floating-wa {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            z-index: 1000;
-        }
-
-        .floating-wa:hover {
-            background-color: #1ebe5d;
-            text-decoration: none;
-            color: white;
-        }
-    </style>
     <a href="{{ $linkWA }}" target="_blank" class="floating-wa">
         <i class="bi bi-whatsapp"></i>
         Pesan Sekarang
@@ -128,9 +84,11 @@
                     @endif
                 </p>
                 <p class="text-muted mb-2"><strong>Deskripsi Produk:</strong></p>
-                <div class="description-box">
+                <p id="descriptionText" class="description collapsed">
                     {!! nl2br(e($produk->deskripsi_produk)) !!}
-                </div>
+                </p>
+                <span id="toggleText" class="toggle-text" style="display: none;">Baca selengkapnya</span>
+
                 {{-- Tambahkan detail lainnya di sini --}}
             </div>
         </div>
@@ -144,28 +102,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.querySelector('#productCarousel');
-        const thumbnails = document.querySelectorAll('.thumbnail');
+            const carousel = document.querySelector('#productCarousel');
+            const thumbnails = document.querySelectorAll('.thumbnail');
 
-        const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+            const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
 
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                carouselInstance.to(index);
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    carouselInstance.to(index);
+                });
+            });
+
+            // Optional: highlight active thumbnail
+            carousel.addEventListener('slid.bs.carousel', function (e) {
+                thumbnails.forEach((thumb, idx) => {
+                    if (idx === e.to) {
+                        thumb.classList.add('border', 'border-primary');
+                    } else {
+                        thumb.classList.remove('border', 'border-primary');
+                    }
+                });
             });
         });
 
-        // Optional: highlight active thumbnail
-        carousel.addEventListener('slid.bs.carousel', function (e) {
-            thumbnails.forEach((thumb, idx) => {
-                if (idx === e.to) {
-                    thumb.classList.add('border', 'border-primary');
-                } else {
-                    thumb.classList.remove('border', 'border-primary');
-                }
+        document.addEventListener("DOMContentLoaded", function () {
+            const desc = document.getElementById("descriptionText");
+            const toggle = document.getElementById("toggleText");
+
+            // Hitung tinggi maksimal untuk 20 baris
+            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight) || 20;
+            const maxHeight = lineHeight * 15;
+
+            // Tampilkan toggle hanya jika teks melebihi 20 baris
+            if (desc.scrollHeight > maxHeight) {
+                desc.classList.add("collapsed");
+                toggle.style.display = "inline";
+            }
+
+            toggle.addEventListener("click", function () {
+                desc.classList.toggle("collapsed");
+                toggle.textContent = desc.classList.contains("collapsed")
+                    ? "Baca selengkapnya"
+                    : "Tampilkan lebih sedikit";
             });
         });
-    });
+
+
+
     </script>
 </body>
 </html>

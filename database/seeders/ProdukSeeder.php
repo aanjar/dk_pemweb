@@ -118,7 +118,7 @@ Untuk memaksimalkan pengiriman :
             ['path_gambar' => 'productIMG/2/3.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/2/4.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/2/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/2/6.jpg', 'is_main' => false],
+            ['path_gambar' => 'productIMG/2/6.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -181,7 +181,7 @@ Untuk memaksimalkan pengiriman :
             ['path_gambar' => 'productIMG/3/3.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/3/4.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/3/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/3/6.jpg', 'is_main' => false],
+            ['path_gambar' => 'productIMG/3/6.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -241,7 +241,7 @@ Untuk memaksimalkan pengiriman :
                 ['path_gambar' => 'productIMG/4/1.png', 'is_main' => true],
                 ['path_gambar' => 'productIMG/4/2.jpg', 'is_main' => false],
                 ['path_gambar' => 'productIMG/4/3.jpg', 'is_main' => false],
-                ['path_gambar' => 'productIMG/4/4.jpg', 'is_main' => false],
+                ['path_gambar' => 'productIMG/4/4.png', 'is_main' => false],
             ];
 
             foreach ($gambarList as $gambar) {
@@ -355,7 +355,7 @@ Untuk memaksimalkan pengiriman :
             ['path_gambar' => 'productIMG/6/3.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/6/4.jpg', 'is_main' => false],
             ['path_gambar' => 'productIMG/6/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/6/6.jpg', 'is_main' => false],
+            ['path_gambar' => 'productIMG/6/6.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -426,9 +426,9 @@ Untuk memaksimalkan pengiriman :
 
         $gambarList = [
             ['path_gambar' => 'productIMG/7/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/7/2.jpg', 'is_main' => false],
+            ['path_gambar' => 'productIMG/7/2.png', 'is_main' => false],
             ['path_gambar' => 'productIMG/7/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/7/4.jpg', 'is_main' => false],
+            ['path_gambar' => 'productIMG/7/4.png', 'is_main' => false],
             ['path_gambar' => 'productIMG/7/5.jpg', 'is_main' => false],
         ];
 
