@@ -108,8 +108,9 @@ html, body {
 
 /* Products */
 .produk-baru-item {
+    /* aspect-ratio: 4 / 3; */
     border: 1px solid rgba(7, 13, 13, 0.1);
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
 }
@@ -119,8 +120,13 @@ html, body {
     transform: translateY(-5px);
 }
 
+.ratio-box {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
 .produk-baru-item img {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     object-fit: contain;
 }
@@ -227,3 +233,5 @@ footer a:hover {
         max-width: 25px;
     }
 }
+
+
