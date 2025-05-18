@@ -1,124 +1,171 @@
-* {
-    font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
+/* Variables */
+:root {
+    --primary-color: #2F353F;
+    --secondary-color: #333333;
+    --text-color: #333333;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition-base: all 0.3s ease;
 }
 
+/* Base Styles */
 body {
-    background-color: #fff;
-    color: #1a1a1a;
-    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--gray-100);
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
-    font-weight: 600;
-    transition: border-bottom 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover {
-    border-bottom: 1px solid white;
-}
-
-.container {
-    max-width: 1200px;
-}
-
-main {
-    margin-top: 120px;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-h4 {
-    font-size: 1.25rem;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
     font-weight: 700;
-    margin-bottom: 0.5rem;
 }
 
-p {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 0.25rem;
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-.text-gray {
-    color: #6b7280;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
 }
 
-.text-pink {
-    color: #db2777;
+.section-subtitle {
+    color: var(--gray-600);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
 }
 
-.text-uppercase {
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-}
-
-.map-card {
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
+/* Location Cards */
+.location-card {
+    background: white;
+    border-radius: 15px;
     overflow: hidden;
-    height: 400px;
-    transition: box-shadow 0.3s ease;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    height: 100%;
 }
 
-.map-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.contact-card,
-.contact-details-card {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.contact-card:hover,
-.contact-details-card:hover {
+.location-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
-.contact-details-card {
+.location-card .card-body {
     padding: 1.5rem;
 }
 
-.contact-card .form-label,
-.contact-details-card .form-label {
-    font-weight: 600;
+.location-card .map-container {
+    height: 250px;
+    overflow: hidden;
 }
 
-.contact-card .form-control,
-.contact-details-card .form-control {
-    border-radius: 4px;
-    padding: 0.5rem;
+.location-card iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
-.contact-card .btn-danger {
-    background-color: #dc3545;
-    border: none;
-    padding: 0.75rem 1.5rem;
+.location-card .store-name {
+    color: var(--primary-color);
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
-.contact-card .btn-danger:hover {
-    background-color: #bb2d3b;
+.location-card .info-item {
+    display: flex;
+    align-items: start;
+    margin-bottom: 0.75rem;
+    color: var(--gray-700);
 }
 
-footer a:hover {
-    border-bottom: 1px solid white;
+.location-card .info-item i {
+    color: var(--secondary-color);
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
 }
 
-.logo-medplace img {
-    max-width: 60px;
+/* Contact Form */
+.contact-form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    margin-top: 2rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    transition: var(--transition-base);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition-base);
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Store Hours Badge */
+.store-hours {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background-color: var(--gray-100);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.store-closed {
+    color: var(--danger);
+    font-weight: 600;
 }
 
 .whatsapp-float {
@@ -151,84 +198,31 @@ footer a:hover {
     transition-duration: 500ms;
 }
 
-/* Media Query untuk Responsivitas */
-
-/* iPad (tablet, lebar 768px - 1024px) */
-@media (max-width: 1024px) {
-    .container {
-        max-width: 100%;
-        padding: 0 15px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
     }
-
-    main {
-        margin-top: 60px;
+    
+    .location-card .map-container {
+        height: 200px;
     }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h4 {
-        font-size: 1.15rem;
-    }
-
-    p {
-        font-size: 0.85rem;
-    }
-
-    .map-card {
-        height: 300px;
-    }
-
-    .contact-card,
-    .contact-details-card {
-        padding: 1.25rem;
+    
+    .contact-form-card {
+        padding: 1.5rem;
     }
 }
 
-/* HP (mobile, lebar <= 576px) */
 @media (max-width: 576px) {
-    h2 {
-        font-size: 1.5rem;
+    .section-title {
+        font-size: 1.75rem;
     }
-
-    h4 {
+    
+    .section-subtitle {
         font-size: 1rem;
     }
-
-    p {
-        font-size: 0.75rem;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-
-    .map-card {
-        height: 250px;
-        margin-bottom: 1rem;
-    }
-
-    .contact-details-card,
-    .contact-card {
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .contact-card .form-control,
-    .contact-card .form-select {
-        font-size: 0.875rem;
-    }
-
-    .logo-medplace img {
-        max-width: 50px;
-    }
-
-    footer .row {
-        text-align: center;
-    }
-
-    footer .logo-medplace {
-        justify-content: center;
+    
+    .location-card {
+        margin-bottom: 1.5rem;
     }
 }

@@ -1,341 +1,184 @@
-* {
-    font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
+/* General Styles */
+:root {
+    --primary-color: #2F353F ;
+    --secondary-color: #2C3E50;
+    --text-color: #333333;
+    --light-gray: #f8f9fa;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
 }
 
 body {
-    background-color: #fff;
-    color: #1a1a1a;
-    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.navbar-dark .navbar-nav .nav-link {
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #1a252f 100%);
     color: white;
-    font-weight: 600;
-    transition: border-bottom 0.3s ease;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-lg);
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-    border-bottom: 1px solid white;
-}
-
-.container {
-    max-width: 1200px;
-}
-
-main {
-    margin-top: 70px;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-}
-
-h4 {
-    font-size: 1.25rem;
+.hero-title {
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
-h5 {
-    font-size: 0.9375rem;
-    font-weight: 700;
+.hero-title span {
+    display: block;
+    color: var(--primary-color);
 }
 
-p {
-    font-size: 0.875rem;
-    line-height: 1.5;
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
 }
 
-.text-gray {
-    color: #6b7280;
-}
-
-.text-pink {
-    color: #db2777;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    border-radius: 12px;
+/* Values Section */
+.value-card {
+    background: white;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     height: 100%;
-}
-
-.about-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-md);
     transition: transform 0.3s ease;
 }
 
-.about-card:hover {
+.value-card:hover {
     transform: translateY(-5px);
 }
 
-.about-card .link {
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.about-card .link:hover {
-    text-decoration: underline;
-}
-
-.image-stack img {
+.value-card img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
 }
 
-.image-stack img:hover {
-    transform: scale(1.05);
+.value-card .card-body {
+    padding: var(--spacing-md);
+}
+
+.value-card h3 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Section Titles */
+.section-subtitle {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Features Section */
+.feature-section {
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg) 0;
 }
 
 .feature-card {
-    border: 1px solid #dee2e6; /* Menambahkan border pada card */
-    border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Memastikan tidak ada overflow yang menyebabkan gap */
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    height: 100%;
+    transition: transform 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card img {
-    max-height: 250px;
-    object-fit: cover;
-    width: 100%;
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 15px;
     height: 100%;
-    border-radius: 0; /* Menghapus border-radius pada gambar agar mepet dengan border card */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Menghapus gap pada gambar di section Selection dan Quality */
-.feature-card .row.g-0 .col-md-4 {
-    padding: 0; /* Menghapus padding internal untuk menghilangkan gap */
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
 }
 
-/* Menyesuaikan card-body agar lebih rapi */
-.feature-card .card-body {
-    padding: 1.5rem;
+/* CTA Section */
+.about-banner {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #1a252f 100%);
+    color: white;
+    padding: var(--spacing-lg) 0;
 }
 
-.why-us p {
-    max-width: 500px;
+.about-banner-content {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.bottom-section {
-    gap: 1.5rem;
-}
-
-.testimonial-card {
-    border: none;
-    border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.testimonial-card img {
-    border: 2px solid #db2777;
-}
-
-footer a:hover {
-    border-bottom: 1px solid white;
-}
-
-.logo-medplace img {
-    max-width: 60px;
-}
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-.whatsapp-float img {
-    width: 60px;
-    height: 60px;
-    transition: transform 0.3s ease;
-}
-.whatsapp-float:hover img {
-    transform: scale(1.1);
-}
-.whatsapp-float span {
-    display: none;
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-    background-color: #25D366;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-.whatsapp-float:hover span {
-    display: block;
-    transition-duration: 500ms;
-}
-
-/* Media Query untuk Responsivitas */
-
-/* iPad (tablet, lebar 768px - 1024px) */
-@media (max-width: 1024px) {
-    .container {
-        max-width: 100%;
-        padding: 0 15px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
     }
-
-    main {
-        margin-top: 60px;
+    
+    .section-title {
+        font-size: 2rem;
     }
-
-    h2 {
-        font-size: 1.75rem;
+    
+    .value-card .row {
+        flex-direction: column;
     }
-
-    h3 {
-        font-size: 1.25rem;
-    }
-
-    p {
-        font-size: 0.85rem;
-    }
-
-    .feature-card img {
-        max-height: 200px;
-    }
-
-    .feature-card .card-body {
-        padding: 1rem;
-    }
-
-    .about-card {
-        padding: 1.5rem;
-    }
-
-    .video-wrapper iframe {
-        height: 250px;
-    }
-
-    .why-us .row {
-        gap: 1rem;
-    }
-
-    .testimonial-card img {
-        width: 90px;
-        height: 90px;
-    }
-}
-
-/* HP (mobile, lebar <= 576px) */
-@media (max-width: 576px) {
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
-
-    p {
-        font-size: 0.75rem;
-    }
-
-    .feature-card {
-        flex-direction: column; /* Menumpuk gambar dan teks secara vertikal */
-    }
-
-    .feature-card img {
-        max-height: 150px;
-        width: 100%;
-        border-radius: 0; /* Menghapus border-radius agar mepet dengan card */
-    }
-
-    .feature-card .col-md-4,
-    .feature-card .col-md-8 {
-        width: 100%; /* Memastikan gambar dan teks mengambil lebar penuh */
-    }
-
-    .feature-card .card-body {
-        padding: 1rem;
-    }
-
-    .about-card {
-        padding: 1rem;
-    }
-
-    .about-card .col-md-7,
-    .about-card .col-md-5 {
+    
+    .value-card .col-5,
+    .value-card .col-7 {
         width: 100%;
     }
-
-    .image-stack img {
-        margin-top: 1rem;
-    }
-
-    .video-wrapper iframe {
+    
+    .value-card img {
+        border-radius: 15px 15px 0 0;
         height: 200px;
     }
-
-    .why-us .row {
-        gap: 0.5rem;
+    
+    .value-card .card-body {
+        padding: var(--spacing-sm);
     }
+}
 
-    .why-us .col-md-4 {
-        margin-bottom: 1rem;
-    }
+/* Animations */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
 
-    .testimonial-card img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .logo-medplace img {
-        max-width: 50px;
-    }
-
-    footer .row {
-        text-align: center;
-    }
-
-    footer .logo-medplace {
-        justify-content: center;
-    }
+[data-aos].aos-animate {
+    opacity: 1;
 }

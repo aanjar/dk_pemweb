@@ -86,36 +86,36 @@
     <section class="py-4">
         <div class="container">
             @if ($latestProducts->isEmpty())
-                <p class="text-center text-muted">Tidak ada produk terbaru saat ini.</p>
+                <div class="empty-state text-center py-5">
+                    <i class="bi bi-camera2 display-1 text-muted mb-3"></i>
+                    <p class="text-muted mb-0">Tidak ada produk terbaru saat ini.</p>
+                </div>
             @else
                 <div class="row g-4">
-        @foreach ($latestProducts as $product)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    @foreach ($latestProducts as $product)
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="produk-baru-item card h-100 border-0 shadow">
-                                    <div class="img-wrapper position-relative">
+                                <div class="product-card">
+                                    <div class="product-image">
                                         @if ($product->grade === 'Unggulan')
-                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
-                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            <span class="featured-badge">
+                                                <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
                                         @if ($product->gambarUtama)
                                             <img src="{{ asset($product->gambarUtama->path_gambar) }}"
                                                 alt="{{ $product->nama_produk }}"
-                                                class="card-img-top" loading="lazy">
+                                                loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
-                                                alt="No Image"
-                                                class="card-img-top">
+                                                alt="No Image">
                                         @endif
                                     </div>
-                                    <div class="card-body p-2">
-                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                    <div class="product-info">
+                                        <h3 class="product-title" title="{{ $product->nama_produk }}">
                                             {{ $product->nama_produk }}
-                                        </h6>
-                                        <p class="card-text text-danger fw-semibold mb-0">
-                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
-                                        </p>
+                                        </h3>
+                                        <p class="product-price">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -136,40 +136,36 @@
     <section class="py-4">
         <div class="container">
             @if ($latestProducts->isEmpty())
-                <p class="text-center text-muted">Tidak ada produk terbaru saat ini.</p>
+                <div class="empty-state text-center py-5">
+                    <i class="bi bi-camera2 display-1 text-muted mb-3"></i>
+                    <p class="text-muted mb-0">Tidak ada produk rekomendasi saat ini.</p>
+                </div>
             @else
                 <div class="row g-4">
-        @foreach ($produkUnggulan as $product)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    @foreach ($produkUnggulan as $product)
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="produk-baru-item card h-100 border-0 shadow">
-                                    <div class="img-wrapper position-relative">
+                                <div class="product-card">
+                                    <div class="product-image">
                                         @if ($product->grade === 'Unggulan')
-                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
-                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            <span class="featured-badge">
+                                                <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
                                         @if ($product->gambarUtama)
                                             <img src="{{ asset($product->gambarUtama->path_gambar) }}"
                                                 alt="{{ $product->nama_produk }}"
-                                                class="card-img-top" loading="lazy">
+                                                loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
-                                                alt="No Image"
-                                                class="card-img-top">
+                                                alt="No Image">
                                         @endif
                                     </div>
-
-
-
-
-                                    <div class="card-body p-2">
-                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                    <div class="product-info">
+                                        <h3 class="product-title" title="{{ $product->nama_produk }}">
                                             {{ $product->nama_produk }}
-                                        </h6>
-                                        <p class="card-text text-danger fw-semibold mb-0">
-                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
-                                        </p>
+                                        </h3>
+                                        <p class="product-price">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -179,7 +175,6 @@
             @endif
         </div>
     </section>
-
 
     <!-- Brands -->
     <section id="Brand" class="py-4">
@@ -210,8 +205,25 @@
         </div>
     </section>
 
+    <!-- YouTube Section -->
+    <section class="youtube-section">
+        <div class="container">
+            <div class="youtube-title">
+                <h2>Dinoyo Kamera Channel</h2>
+                <p>Temukan tips dan review produk terbaru dari tim kami di channel YouTube Dinoyo Kamera</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="youtube-container">
+                        <iframe src="https://www.youtube.com/embed/3o2IrQrb7ws?si=t5g5UGYrifjmhKxD" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits -->
-    <section id="Benefit" class="py-4">
+    <section id="Benefit" class="pb-1   ">
         <div class="container">
             <h2 class="section-title">Benefit</h2>
         </div>

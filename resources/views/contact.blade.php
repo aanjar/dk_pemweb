@@ -8,88 +8,207 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/contactStore.css') }}">
 </head>
 <body>
- <!-- Navigation -->
- @include('partials.header')
+    <!-- Navigation -->
+    @include('partials.header')
 
-<!-- Main Content -->
-<main class="container py-5">
-    <section class="row g-0 mb-4">
-        <div class="col-12 text-center mb-3">
-            <h2 class="fw-bold text-dark">Hubungi Kami</h2>
-            <p class="text-gray">Dinoyo Kamera dengan senang hati menerima dukungan dan pertanyaan Anda. Kami akan berusaha untuk menjawab pertanyaan Anda segera setelah kami menerimanya.</p>
-        </div>
-    </section>
-    <section class="row g-4">
-        <!-- Google Maps Section -->
-        <div class="col-md-6">
-            <div class="map-card shadow-sm h-100">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6400010975767!2d112.6038165!3d-7.932615299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78821258558e79%3A0x329993e281b05187!2sDinoyo%20Kamera!5e0!3m2!1sen!2sid!4v1746725988976!5m2!1sen!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="text-center mb-5">
+                <h1 class="section-title">Hubungi Kami</h1>
+                <p class="section-subtitle">Dinoyo Kamera dengan senang hati menerima dukungan dan pertanyaan Anda. Kami akan berusaha untuk menjawab pertanyaan Anda segera setelah kami menerimanya.</p>
+            </div>
+
+            <!-- Store Locations -->
+            <div class="row g-4">
+                <!-- Dinoyo Kamera 1 -->
+                <div class="col-lg-4">
+                    <div class="location-card">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6400010975767!2d112.6038165!3d-7.932615299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78821258558e79%3A0x329993e281b05187!2sDinoyo%20Kamera!5e0!3m2!1sid!2sid!4v1747554465125!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="store-name">Dinoyo Kamera 1</h3>
+                            <div class="info-item">
+                                <i class="bi bi-clock"></i>
+                                <div>
+                                    <div class="store-hours">Setiap Hari - 10.00 - 20.00 WIB</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <a href="tel:+6282345670014" class="text-decoration-none text-dark">+62 823-4567-0014</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div>
+                                    RUKO TLOGOMAS SQUARE kav 9 lantai 1, Tlogomas, Kec Lowokwaru, Kota Malang, Jawa Timur, 65144
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dinoyo Kamera 2 -->
+                <div class="col-lg-4">
+                    <div class="location-card">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.557519855936!2d112.63811319999999!3d-7.941193300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6291d8fa42637%3A0xc8390745e1480bc!2sJual%20beli%20kamera%20bekas%20indonesia!5e0!3m2!1sid!2sid!4v1747554514731!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="store-name">Dinoyo Kamera 2</h3>
+                            <div class="info-item">
+                                <i class="bi bi-clock"></i>
+                                <div>
+                                    <div class="store-hours">Rabu - Senin (08.00 - 18.00)</div>
+                                    <div class="store-closed">Selasa Tutup</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <a href="tel:+6281230551552" class="text-decoration-none text-dark">+62 812-3055-1552</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div>
+                                    Jl. C.Trowulan No.65B, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65142
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toko Kamera Pasuruan -->
+                <div class="col-lg-4">
+                    <div class="location-card">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7908.479203849883!2d112.9089841886383!3d-7.657367309665906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c7118f8ee425%3A0x2e6af9e52800eab1!2sToko%20Kamera%20Pasuruan%20%2F%20Studio%20Foto%20Pasuruan%20%2F%20Servis%20Kamera%20%2F%20Uno%20Studio%20Pasuruan%20%2F%20Self%20Studio%20%2F%20Pas%20Foto!5e0!3m2!1sid!2sid!4v1747554559733!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="store-name">Toko Kamera Pasuruan</h3>
+                            <div class="info-item">
+                                <i class="bi bi-clock"></i>
+                                <div>
+                                    <div class="store-hours">Setiap Hari - 10.00 - 20.00 WIB</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <a href="tel:+6282345670014" class="text-decoration-none text-dark">+62 823-4567-0014</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div>
+                                    Jl. Sunan Ampel, Petamanan, Kec. Bugul Kidul, Kota Pasuruan, Jawa Timur
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-card">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-center mb-4">Kirim Pesan</h2>
+                        <form class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nama Lengkap*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" id="name" required>
+                                        <div class="invalid-feedback">Mohon isi nama lengkap Anda</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">Mohon isi alamat email yang valid</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Nomor Telepon*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                        <div class="invalid-feedback">Mohon isi nomor telepon Anda</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="store" class="form-label">Pilih Toko*</label>
+                                    <select class="form-select" id="store" required>
+                                        <option value="">Pilih lokasi toko...</option>
+                                        <option value="dinoyo1">Dinoyo Kamera 1</option>
+                                        <option value="dinoyo2">Dinoyo Kamera 2</option>
+                                        <option value="pasuruan">Toko Kamera Pasuruan</option>
+                                    </select>
+                                    <div class="invalid-feedback">Mohon pilih lokasi toko</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subjek*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+                                        <input type="text" class="form-control" id="subject" required>
+                                        <div class="invalid-feedback">Mohon isi subjek pesan</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Pesan*</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    <div class="invalid-feedback">Mohon isi pesan Anda</div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-submit w-100">
+                                        <i class="bi bi-send me-2"></i>
+                                        Kirim Pesan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Contact Details Section -->
-        <div class="col-md-6">
-            <div class="contact-details-card shadow-sm p-4 h-100">
-                <h4 class="fw-bold text-dark">Dinoyo Kamera Store Malang:</h4>
-                <p><strong>Telp:</strong> (021) 2664 8999</p>
-                <p><strong>WhatsApp:</strong> 0811 822 167</p>
-                <p><strong>Jam Operasional:</strong></p>
-                <p>Senin sampai Jumat: 8:00 - 17:00</p>
-                <p>Sabtu: 9:00 - 14:00</p>
-                <p><strong>Produk yang didukung:</strong></p>
-                <p>Printer Inkjet, Printer Laser Fungsi Tunggal, Printer Foto Nikabel, Printer Multifungsi Besar, Kamera, Lensa, Video Kamera, Solsu Jaringan Video, Scanner, Proyektor, Suppli</p>
-                <p><strong>Produk yang didukung:</strong></p>
-                <p>Perangkat Multi-fungsi Bisnis, Printer Laser Multi-fungsi, Sistem Percetakan Komersial, Sistem Percetakan Untuk Produksi, Managed Document Service</p>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Form Section -->
-    <section class="row mt-4">
-        <div class="col-12">
-            <div class="contact-card shadow-sm p-4">
-                <!-- Contact Form -->
-                <form>
-                    <div class="mb-3">
-                        <label for="type" class="form-label text-dark">Pilih Tipe Pertanyaan*</label>
-                        <select class="form-select" id="type" required>
-                            <option value="">Pilih Tipe Pertanyaan</option>
-                            <option value="general">Silahkan Pilih Topik*</option>
-                            <option value="support">Silahkan Pilih Sapa*</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label text-dark">Nama*</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label text-dark">Alamat Email*</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ketik Ulang Alamat Email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label text-dark">Nomor Kontak*</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Nomor Kontak" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label text-dark">Pesan* (Harap cantumkan model produk dan jika ada)</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Pesan" required></textarea>
-                    </div>
-                    <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="robot">
-                        <label class="form-check-label text-gray" for="robot">Saya bukan robot</label>
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100 fw-bold">Kirim email</button>
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
+    </main>
 
-<!-- Footer -->
-@include('partials.footer')
+    <!-- Footer -->
+    @include('partials.footer')
 
-<!-- WhatsApp Float Icon -->
-@include('partials.floater')
+    <!-- WhatsApp Float Icon -->
+    @include('partials.floater')
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
 </body>
 </html>

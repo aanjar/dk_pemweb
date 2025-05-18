@@ -183,6 +183,26 @@ html, body {
 }
 
 /* Benefits */
+#Benefit {
+    margin-bottom: 2rem;
+}
+
+#Benefit-Item {
+    margin-bottom: 4rem;
+}
+
+#Benefit-Item .col {
+    transition: var(--transition-base);
+}
+
+#Benefit-Item .col:hover {
+    transform: scale(1.1);
+}
+
+#Benefit-Item img {
+    margin-bottom: 1rem;
+}
+
 .benefit-title {
     font-size: 0.75rem;
     font-weight: 650;

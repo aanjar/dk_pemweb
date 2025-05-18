@@ -20,94 +20,129 @@
 <body>
     @include('partials.header')
 
-    <!-- Filter Section -->
-    <section class="bg-white border-bottom py-4">
+    <!-- Hero Section -->
+    <section class="catalog-hero py-4 mb-4">
         <div class="container">
-            <form method="GET" action="{{ route('product.index') }}">
-    <div class="row g-3 align-items-center">
-        <!-- Search: full width di xs, 5 kolom di md -->
-        <div class="col-12 col-md-5">
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input type="text" class="form-control" name="search" placeholder="Cari produk..." value="{{ $search ?? '' }}" onkeyup="this.form.submit()">
-            </div>
+            <h1 class="text-center mb-2">Katalog Produk</h1>
+            <p class="text-center text-muted mb-0">Temukan berbagai produk kamera dan aksesoris berkualitas</p>
         </div>
+    </section>
 
-        <!-- Kategori: setengah di xs, 4 kolom di md -->
-        <div class="col-6 col-md-4">
-            <select class="form-select" name="kategori" onchange="this.form.submit()">
-                <option value="">Semua Kategori</option>
-                @foreach ($kategoris as $kategori)
-                    <option value="{{ $kategori->id }}" {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>
-                        {{ $kategori->nama_kategori }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
+    <!-- Filter Section -->
+    <section class="filter-section sticky-top bg-white border-bottom py-4">
+        <div class="container">
+            <form method="GET" action="{{ route('product.index') }}" id="filterForm">
+                <div class="row g-3">
+                    <!-- Search Bar -->
+                    <div class="col-12 col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-text border-end-0 bg-white">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0 shadow-none" 
+                                   name="search" placeholder="Cari produk..." 
+                                   value="{{ $search ?? '' }}">
+                        </div>
+                    </div>
 
-        <!-- Sort: setengah di xs, 3 kolom di md -->
-        <div class="col-6 col-md-3">
-            <select class="form-select" name="sort" onchange="this.form.submit()">
-                <option value="terbaru" {{ $sort == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
-                <option value="termurah" {{ $sort == 'termurah' ? 'selected' : '' }}>Termurah</option>
-                <option value="termahal" {{ $sort == 'termahal' ? 'selected' : '' }}>Termahal</option>
-            </select>
-        </div>
-    </div>
-</form>
+                    <!-- Category Select -->
+                    <div class="col-6 col-md-4">
+                        <select class="form-select shadow-none" name="kategori">
+                            <option value="">Semua Kategori</option>
+                            @foreach ($kategoris as $kategori)
+                                <option value="{{ $kategori->id }}" 
+                                        {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>
+                                    {{ $kategori->nama_kategori }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
 
+                    <!-- Sort Select -->
+                    <div class="col-6 col-md-3">
+                        <select class="form-select shadow-none" name="sort">
+                            <option value="terbaru" {{ $sort == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
+                            <option value="termurah" {{ $sort == 'termurah' ? 'selected' : '' }}>Termurah</option>
+                            <option value="termahal" {{ $sort == 'termahal' ? 'selected' : '' }}>Termahal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Category Pills -->
+                <div class="category-pills mt-3">
+                    <div class="d-flex gap-2 overflow-auto pb-2">
+                        <button type="button" class="category-pill {{ empty($kategoriFilter) ? 'active' : '' }}"
+                                onclick="selectCategory('')">
+                            Semua
+                        </button>
+                        @foreach ($kategoris as $kategori)
+                            <button type="button" 
+                                    class="category-pill {{ $kategoriFilter == $kategori->id ? 'active' : '' }}"
+                                    onclick="selectCategory('{{ $kategori->id }}')">
+                                {{ $kategori->nama_kategori }}
+                            </button>
+                        @endforeach
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- Product Grid -->
-    <section class="py-4">
+    <section class="product-grid py-4">
         <div class="container">
             @if ($products->isEmpty())
-                <p class="text-center text-muted">Tidak ada produk yang tersedia.</p>
+                <div class="empty-state text-center py-5">
+                    <i class="bi bi-camera2 display-1 text-muted mb-3"></i>
+                    <p class="text-muted mb-0">Tidak ada produk yang tersedia.</p>
+                </div>
             @else
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
-
+                <div class="row g-4">
                     @foreach ($products as $product)
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="col-6 col-md-4 col-lg-3">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="produk-baru-item card h-100 border-0 shadow">
-                                   <div class="img-wrapper position-relative">
+                                <div class="product-card">
+                                    <div class="product-image">
                                         @if ($product->grade === 'Unggulan')
-                                            <span class="badge bg-warning position-absolute top-0 end-0 m-2">
-                                                <i class="bi bi-star-fill"></i> <!-- Ikon Bintang Bootstrap -->
+                                            <span class="featured-badge">
+                                                <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
                                         @if ($product->gambarUtama)
                                             <img src="{{ asset($product->gambarUtama->path_gambar) }}"
                                                 alt="{{ $product->nama_produk }}"
-                                                class="card-img-top" loading="lazy">
+                                                loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
-                                                alt="No Image"
-                                                class="card-img-top">
+                                                alt="No Image">
                                         @endif
                                     </div>
-                                    <div class="card-body p-2 d-flex flex-column justify-content-center">
-                                        <h6 class="card-title fw-bold mb-1" title="{{ $product->nama_produk }}">
+                                    <div class="product-info">
+                                        <h3 class="product-title" title="{{ $product->nama_produk }}">
                                             {{ $product->nama_produk }}
-                                        </h6>
-                                        <p class="card-text text-danger fw-semibold mb-0">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
+                                        </h3>
+                                        <p class="product-price">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     @endforeach
                 </div>
+
                 <!-- Pagination -->
-                <nav aria-label="Page navigation" class="mt-4">
+                <nav aria-label="Product navigation" class="mt-4">
                     <ul class="pagination justify-content-center">
                         @if ($products->onFirstPage())
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Previous"><</a>
+                                <span class="page-link">
+                                    <i class="bi bi-chevron-left"></i>
+                                </span>
                             </li>
                         @else
                             <li class="page-item">
-                                <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous"><</a>
+                                <a class="page-link" href="{{ $products->previousPageUrl() }}">
+                                    <i class="bi bi-chevron-left"></i>
+                                </a>
                             </li>
                         @endif
 
@@ -119,11 +154,15 @@
 
                         @if ($products->hasMorePages())
                             <li class="page-item">
-                                <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">></a>
+                                <a class="page-link" href="{{ $products->nextPageUrl() }}">
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
                             </li>
                         @else
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Next">></a>
+                                <span class="page-link">
+                                    <i class="bi bi-chevron-right"></i>
+                                </span>
                             </li>
                         @endif
                     </ul>
@@ -136,21 +175,29 @@
     @include('partials.floater')
 
     <script>
+        // Debounced search input
         let timeout;
         const input = document.querySelector('input[name="search"]');
         input.addEventListener('keyup', () => {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
-                input.form.submit();
+                document.getElementById('filterForm').submit();
             }, 500);
         });
 
+        // Category selection
+        function selectCategory(categoryId) {
+            document.querySelector('select[name="kategori"]').value = categoryId;
+            document.getElementById('filterForm').submit();
+        }
+
+        // Initialize tooltips
         document.addEventListener('DOMContentLoaded', function () {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-            new bootstrap.Tooltip(tooltipTriggerEl);
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
-    });
     </script>
 </body>
 </html>
