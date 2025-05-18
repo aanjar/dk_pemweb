@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/AboutStore.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -194,7 +195,7 @@
                 <div class="container text-center">
                     <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">Siap Memulai Perjalanan Fotografi Anda?</h2>
                     <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">Hubungi kami sekarang untuk konsultasi gratis dan temukan solusi terbaik untuk kebutuhan fotografi Anda.</p>
-                    <a href="https://wa.me/6285226158143" data-bs-toggle="modal" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Mulai Sekarang</a>
+                    <a href="/contact"  class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Mulai Sekarang</a>
                 </div>
             </div>
         </section>
@@ -202,6 +203,7 @@
 
     <!-- Footer -->
     @include('partials.footer')
+    @include('partials.floating-wa')
 
     <!-- Back to Top -->
     <button id="backToTop" class="btn">

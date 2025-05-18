@@ -114,11 +114,7 @@
 
         <!-- Footer -->
     @include('partials.footer')
-
-     <a href="{{ $linkWA }}" target="_blank" class="floating-wa">
-        <i class="bi bi-whatsapp"></i>
-        Pesan Sekarang
-    </a>
+    @include('partials.floating-wa')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

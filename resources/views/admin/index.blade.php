@@ -135,7 +135,7 @@
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status" required>
                                         <option value="Unggulan">Unggulan</option>
-                                        <option value="Unggulan">Standar</option>
+                                        <option value="Standar">Standar</option>
                                         <option value="Minus">Minus</option>
                                     </select>
                                 </div>
@@ -205,10 +205,12 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if($product->status == 'aktif')
-                                                    <span class="badge bg-success">Aktif</span>
+                                                @if($product->status == 'Unggulan')
+                                                    <span class="badge bg-success">Unggulan</span>
+                                                @elseif($product->status == 'Standar')
+                                                    <span class="badge bg-primary">Standar</span>
                                                 @else
-                                                    <span class="badge bg-secondary">Non-aktif</span>
+                                                    <span class="badge bg-warning">Minus</span>
                                                 @endif
                                             </td>
                                             <td>

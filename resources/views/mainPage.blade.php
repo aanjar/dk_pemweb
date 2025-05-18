@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/mainPage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/katalog.css') }}">
@@ -21,7 +25,7 @@
     @include('partials.header')
 
     <!-- Promotion Carousel -->
-    <section id="promotion" class="py-4">
+    <section id="promotion" class="py-4" data-aos="fade-up">
         <div class="container">
             <div id="demo" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -53,30 +57,70 @@
     </section>
 
     <!-- Categories -->
-    <section id="Kategori" class="py-4">
+    <section id="Kategori" class="py-4" data-aos="fade-up" data-aos-delay="100">
         <div class="container d-flex justify-content-between align-items-center">
             <h2 class="section-title mb-0">Kategori</h2>
-            <a href="" class="text-decoration-none">Lihat Selengkapnya</a>
+            <a href="/katalog" class="text-decoration-none">Lihat Selengkapnya</a>
         </div>
     </section>
     <section id="Kategori-Display" class="py-4">
         <div class="container">
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
-                <div class="col"><img src="{{ asset('mCategoryIMG/1.png') }}" alt="Camera" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/2.png') }}" alt="Video" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/3.png') }}" alt="Lens" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/4.png') }}" alt="Tripod" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/5.png') }}" alt="Studio Kit" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/6.png') }}" alt="Bag Case" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/7.png') }}" alt="Filter" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/8.png') }}" alt="Accessories" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/9.png') }}" alt="Camera Film" class="img-fluid"></div>
-                <div class="col"><img src="{{ asset('mCategoryIMG/10.png') }}" alt="Used Item" class="img-fluid"></div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 1]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/1.png') }}" alt="Kamera DSLR" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 2]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/2.png') }}" alt="Kamera Mirrorless" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 3]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/3.png') }}" alt="Kamera Digital" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 4]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/4.png') }}" alt="Handycam" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 5]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/5.png') }}" alt="Kamera Instan" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 6]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/6.png') }}" alt="Kamera Lain" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 7]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/7.png') }}" alt="Lensa" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 8]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/8.png') }}" alt="Baterai/Charger" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 9]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/9.png') }}" alt="Kartu Memori" class="category-image">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('product.index', ['kategori' => 10]) }}" class="category-link">
+                        <img src="{{ asset('mCategoryIMG/10.png') }}" alt="Aksesoris Lain" class="category-image">
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="Kategori2" class="py-4">
+    <section id="Kategori2" class="py-4" data-aos="fade-up">
         <div class="container d-flex justify-content-between align-items-center">
             <h2 class="section-title mb-0">Produk Terbaru</h2>
             <a href="{{ route('product.index', ['sort' => 'terbaru']) }}" class="text-decoration-none">Lihat Selengkapnya</a>
@@ -86,17 +130,17 @@
     <section class="py-4">
         <div class="container">
             @if ($latestProducts->isEmpty())
-                <div class="empty-state text-center py-5">
-                    <i class="bi bi-camera2 display-1 text-muted mb-3"></i>
-                    <p class="text-muted mb-0">Tidak ada produk terbaru saat ini.</p>
+                <div class="text-center py-5" data-aos="fade-up">
+                    <i class="bi bi-box display-1 text-muted"></i>
+                    <p class="text-muted mt-3">Tidak ada produk terbaru saat ini.</p>
                 </div>
             @else
-                <div class="row g-4">
-                    @foreach ($latestProducts as $product)
-                        <div class="col-6 col-md-4 col-lg-3">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+                    @foreach ($latestProducts as $index => $product)
+                        <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
                                 <div class="product-card">
-                                    <div class="product-image">
+                                    <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
@@ -104,18 +148,22 @@
                                         @endif
                                         @if ($product->gambarUtama)
                                             <img src="{{ asset($product->gambarUtama->path_gambar) }}"
-                                                alt="{{ $product->nama_produk }}"
-                                                loading="lazy">
+                                                 alt="{{ $product->nama_produk }}"
+                                                 class="product-image" 
+                                                 loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
-                                                alt="No Image">
+                                                 alt="No Image"
+                                                 class="product-image">
                                         @endif
                                     </div>
                                     <div class="product-info">
                                         <h3 class="product-title" title="{{ $product->nama_produk }}">
                                             {{ $product->nama_produk }}
                                         </h3>
-                                        <p class="product-price">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
+                                        <p class="product-price mb-0">
+                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -126,7 +174,7 @@
         </div>
     </section>
 
-    <section id="Kategori2" class="py-4">
+    <section id="Kategori2" class="py-4" data-aos="fade-up">
         <div class="container d-flex justify-content-between align-items-center">
             <h2 class="section-title mb-0">Rekomendasi</h2>
             <a href="{{ route('product.index', ['sort' => 'rekomendasi']) }}" class="text-decoration-none">Lihat Selengkapnya</a>
@@ -135,18 +183,18 @@
 
     <section class="py-4">
         <div class="container">
-            @if ($latestProducts->isEmpty())
-                <div class="empty-state text-center py-5">
-                    <i class="bi bi-camera2 display-1 text-muted mb-3"></i>
-                    <p class="text-muted mb-0">Tidak ada produk rekomendasi saat ini.</p>
+            @if ($produkUnggulan->isEmpty())
+                <div class="text-center py-5" data-aos="fade-up">
+                    <i class="bi bi-box display-1 text-muted"></i>
+                    <p class="text-muted mt-3">Tidak ada produk rekomendasi saat ini.</p>
                 </div>
             @else
-                <div class="row g-4">
-                    @foreach ($produkUnggulan as $product)
-                        <div class="col-6 col-md-4 col-lg-3">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+                    @foreach ($produkUnggulan as $index => $product)
+                        <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
                                 <div class="product-card">
-                                    <div class="product-image">
+                                    <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
@@ -154,18 +202,22 @@
                                         @endif
                                         @if ($product->gambarUtama)
                                             <img src="{{ asset($product->gambarUtama->path_gambar) }}"
-                                                alt="{{ $product->nama_produk }}"
-                                                loading="lazy">
+                                                 alt="{{ $product->nama_produk }}"
+                                                 class="product-image" 
+                                                 loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
-                                                alt="No Image">
+                                                 alt="No Image"
+                                                 class="product-image">
                                         @endif
                                     </div>
                                     <div class="product-info">
                                         <h3 class="product-title" title="{{ $product->nama_produk }}">
                                             {{ $product->nama_produk }}
                                         </h3>
-                                        <p class="product-price">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</p>
+                                        <p class="product-price mb-0">
+                                            Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -177,7 +229,7 @@
     </section>
 
     <!-- Brands -->
-    <section id="Brand" class="py-4">
+    <section id="Brand" class="py-4" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">Brands</h2>
         </div>
@@ -223,7 +275,7 @@
     </section>
 
     <!-- Benefits -->
-    <section id="Benefit" class="pb-1   ">
+    <section id="Benefit" class="pb-1">
         <div class="container">
             <h2 class="section-title">Benefit</h2>
         </div>
@@ -263,7 +315,12 @@
     @include('partials.footer')
 
     <!-- WhatsApp Float Icon -->
-    @include('partials.floater')
+    @include('partials.floating-wa')
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
+    <script src="{{ asset('js/animations.js') }}"></script>
 </body>
 </html>
 

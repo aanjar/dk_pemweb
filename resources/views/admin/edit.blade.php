@@ -66,8 +66,11 @@
 
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input type="text" name="status" id="status" class="form-control"
-                    value="{{ old('status', $product->status) }}" required>
+                <select name="status" id="status" class="form-control" required>
+                    <option value="Unggulan" {{ $product->status == 'Unggulan' ? 'selected' : '' }}>Unggulan</option>
+                    <option value="Standar" {{ $product->status == 'Standar' ? 'selected' : '' }}>Standar</option>
+                    <option value="Minus" {{ $product->status == 'Minus' ? 'selected' : '' }}>Minus</option>
+                </select>
             </div>
 
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Batal</a>
