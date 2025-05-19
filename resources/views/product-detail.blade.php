@@ -53,7 +53,7 @@
                     <div class="carousel-inner">
                         @foreach ($produk->gambar as $index => $gambar)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                <img src="{{ asset($gambar->path_gambar) }}"
+                                <img src="/storage{{ asset($gambar->path_gambar) }}"
                                     class="d-block w-100 main-image"
                                     alt="{{ $produk->nama_produk }}" loading="lazy">
                             </div>
@@ -73,7 +73,7 @@
                 <!-- Thumbnail -->
                 <div class="d-flex flex-wrap gap-2 justify-content-center mt-2">
                     @foreach ($produk->gambar as $index => $gambar)
-                        <img src="{{ asset($gambar->path_gambar) }}"
+                        <img src="/storage{{ asset($gambar->path_gambar) }}"
                             alt="{{ $produk->nama_produk }}"
                             class="img-fluid thumbnail"
                             style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"

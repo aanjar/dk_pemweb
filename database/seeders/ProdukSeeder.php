@@ -55,10 +55,10 @@ KELENGKAPAN:
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/1/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/1/2.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/1/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/1/4.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/11.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/12.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/13.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/14.jpg', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -115,12 +115,12 @@ Untuk memaksimalkan pengiriman :
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/2/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/2/2.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/2/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/2/4.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/2/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/2/6.png', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/21.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/22.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/23.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/24.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/25.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/26.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -179,12 +179,12 @@ Untuk memaksimalkan pengiriman :
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/3/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/3/2.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/3/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/3/4.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/3/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/3/6.png', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/31.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/32.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/33.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/34.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/35.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/36.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -242,10 +242,10 @@ Untuk memaksimalkan pengiriman :
             ]);
 
             $gambarList = [
-                ['path_gambar' => 'productIMG/4/1.png', 'is_main' => true],
-                ['path_gambar' => 'productIMG/4/2.jpg', 'is_main' => false],
-                ['path_gambar' => 'productIMG/4/3.jpg', 'is_main' => false],
-                ['path_gambar' => 'productIMG/4/4.png', 'is_main' => false],
+                ['path_gambar' => 'gambar_produk/41.png', 'is_main' => true],
+                ['path_gambar' => 'gambar_produk/42.jpg', 'is_main' => false],
+                ['path_gambar' => 'gambar_produk/43.jpg', 'is_main' => false],
+                ['path_gambar' => 'gambar_produk/44.png', 'is_main' => false],
             ];
 
             foreach ($gambarList as $gambar) {
@@ -299,9 +299,9 @@ Untuk memaksimalkan pengiriman :
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/5/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/5/2.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/5/3.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/51.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/52.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/53.jpg', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -356,12 +356,12 @@ Untuk memaksimalkan pengiriman :
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/6/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/6/1.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/6/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/6/4.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/6/5.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/6/6.png', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/61.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/61.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/63.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/64.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/65.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/66.png', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -432,11 +432,11 @@ Untuk memaksimalkan pengiriman :
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/7/1.png', 'is_main' => true],
-            ['path_gambar' => 'productIMG/7/2.png', 'is_main' => false],
-            ['path_gambar' => 'productIMG/7/3.jpg', 'is_main' => false],
-            ['path_gambar' => 'productIMG/7/4.png', 'is_main' => false],
-            ['path_gambar' => 'productIMG/7/5.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/71.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/72.png', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/73.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/74.png', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/75.jpg', 'is_main' => false],
         ];
 
         foreach ($gambarList as $gambar) {
@@ -461,7 +461,7 @@ Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/8/1.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/81.png', 'is_main' => true],
                     ];
 
         foreach ($gambarList as $gambar) {
@@ -484,7 +484,7 @@ Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/9/1.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/91.png', 'is_main' => true],
                     ];
 
         foreach ($gambarList as $gambar) {
@@ -507,7 +507,7 @@ Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
         ]);
 
         $gambarList = [
-            ['path_gambar' => 'productIMG/10/1.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/101.png', 'is_main' => true],
                     ];
 
         foreach ($gambarList as $gambar) {

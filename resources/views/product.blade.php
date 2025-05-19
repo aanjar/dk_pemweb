@@ -107,7 +107,7 @@
                                             </span>
                                         @endif
                                         @if ($product->gambarUtama)
-                                            <img src="{{ asset($product->gambarUtama->path_gambar) }}"
+                                            <img src="/storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
                                                  class="product-image" 
                                                  loading="lazy">

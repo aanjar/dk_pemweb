@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         // Ambil produk dengan relasi gambar dan kategori
         $produk = Produk::with(['gambar', 'kategori'])->findOrFail($id);
-
+        
         return view('product-detail', compact('produk'));
     }
 

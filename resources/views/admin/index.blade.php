@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Dinoyo Kamera</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
+
 <body>
     @include('partials.header')
-    
+
     <main>
         <div class="container">
             <!-- Dashboard Header -->
@@ -21,7 +24,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1>Dashboard Admin</h1>
-                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda disini.</p>
+                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda
+                            disini.</p>
                     </div>
                     <div class="col-md-4 text-md-end">
                         <span class="badge bg-primary p-2">
@@ -91,28 +95,31 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation" novalidate>
+                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="kode_sku" class="form-label">Kode SKU</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-upc"></i></span>
-                                        <input type="text" class="form-control" id="kode_sku" name="kode_sku" required>
+                                        <input type="text" class="form-control" id="kode_sku" name="kode_sku"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="nama_produk" class="form-label">Nama Produk</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-camera"></i></span>
-                                        <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+                                        <input type="text" class="form-control" id="nama_produk" name="nama_produk"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="harga_jual" class="form-label">Harga</label>
                                     <div class="input-group">
                                         <span class="input-group-text">Rp</span>
-                                        <input type="number" class="form-control" id="harga_jual" name="harga_jual" required>
+                                        <input type="number" class="form-control" id="harga_jual" name="harga_jual"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -128,16 +135,35 @@
                                     <label for="stok_produk" class="form-label">Stok</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-boxes"></i></span>
-                                        <input type="number" class="form-control" id="stok_produk" name="stok_produk" required>
+                                        <input type="number" class="form-control" id="stok_produk"
+                                            name="stok_produk" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status" required>
+                                        <option value="Second">Second</option>
+                                        <option value="Baru">Baru</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="grade" class="form-label">Grade</label>
+                                    <select class="form-select" id="grade" name="grade" required>
                                         <option value="Unggulan">Unggulan</option>
                                         <option value="Standar">Standar</option>
                                         <option value="Minus">Minus</option>
                                     </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="gambar_produk" class="form-label">Gambar Produk</label>
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text"><i class="bi bi-images"></i></span>
+                                        <input type="file" class="form-control" id="gambar_produk"
+                                            name="gambar_produk[]" multiple accept="image/*"
+                                            onchange="previewGambar(event)">
+                                    </div>
+                                    <div id="preview-container" class="row g-2"></div>
+                                    <small class="text-muted">Pilih salah satu gambar sebagai gambar utama.</small>
                                 </div>
                                 <div class="col-12">
                                     <label for="deskripsi_produk" class="form-label">Deskripsi</label>
@@ -165,7 +191,8 @@
                         </h2>
                         <div class="d-flex gap-2">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Cari produk..." id="searchProduct">
+                                <input type="text" class="form-control" placeholder="Cari produk..."
+                                    id="searchProduct">
                                 <button class="btn btn-outline-secondary" type="button">
                                     <i class="bi bi-search"></i>
                                 </button>
@@ -198,14 +225,14 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                @if($product->stok_produk < 5)
+                                                @if ($product->stok_produk < 5)
                                                     <span class="badge bg-danger">{{ $product->stok_produk }}</span>
                                                 @else
                                                     <span class="badge bg-success">{{ $product->stok_produk }}</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                @if($product->status == 'Unggulan')
+                                                @if ($product->status == 'Unggulan')
                                                     <span class="badge bg-success">Unggulan</span>
                                                 @elseif($product->status == 'Standar')
                                                     <span class="badge bg-primary">Standar</span>
@@ -215,13 +242,16 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('admin.edit', $product->id) }}" class="btn btn-warning btn-sm">
+                                                    <a href="{{ route('admin.edit', $product->id) }}"
+                                                        class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <form action="{{ route('admin.destroy', $product->id) }}" method="POST" class="d-inline">
-                                                        @csrf 
+                                                    <form action="{{ route('admin.destroy', $product->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
                                                     </form>
@@ -253,11 +283,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Form validation
-        (function () {
+        (function() {
             'use strict'
             var forms = document.querySelectorAll('.needs-validation')
-            Array.prototype.slice.call(forms).forEach(function (form) {
-                form.addEventListener('submit', function (event) {
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
                     if (!form.checkValidity()) {
                         event.preventDefault()
                         event.stopPropagation()
@@ -267,11 +297,44 @@
             })
         })()
 
+        //preview + pilih gambar utama
+        function previewGambar(event) {
+            const files = event.target.files;
+            const container = document.getElementById('preview-container');
+            container.innerHTML = ''; // Kosongkan preview
+
+            for (let i = 0; i < files.length; i++) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const col = document.createElement('div');
+                    col.classList.add('col-4');
+
+                    col.innerHTML = `
+                <div class="card">
+                    <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="main_image_index" value="${i}" id="mainImage${i}" ${i === 0 ? 'checked' : ''}>
+                            <label class="form-check-label" for="mainImage${i}">
+                                Jadikan Gambar Utama
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `;
+                    container.appendChild(col);
+                }
+
+                reader.readAsDataURL(files[i]);
+            }
+        }
+
         // Search functionality
         document.getElementById('searchProduct').addEventListener('keyup', function() {
             let searchQuery = this.value.toLowerCase();
             let tableRows = document.querySelectorAll('tbody tr');
-            
+
             tableRows.forEach(row => {
                 let text = row.textContent.toLowerCase();
                 row.style.display = text.includes(searchQuery) ? '' : 'none';
@@ -279,4 +342,5 @@
         });
     </script>
 </body>
+
 </html>
