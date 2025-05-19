@@ -95,7 +95,8 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation" enctype="multipart/form-data" novalidate>
+                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation"
+                            enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -210,6 +211,7 @@
                                         <th>Kategori</th>
                                         <th>Stok</th>
                                         <th>Status</th>
+                                        <th>Grade</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -232,14 +234,26 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($product->status == 'Unggulan')
-                                                    <span class="badge bg-success">Unggulan</span>
-                                                @elseif($product->status == 'Standar')
-                                                    <span class="badge bg-primary">Standar</span>
+                                                @if ($product->status == 'Baru')
+                                                    <span class="badge bg-success">Baru</span>
+                                                @elseif($product->status == 'Second')
+                                                    <span class="badge bg-secondary">Second</span>
                                                 @else
-                                                    <span class="badge bg-warning">Minus</span>
+                                                    <span class="badge bg-light text-dark">-</span>
                                                 @endif
                                             </td>
+                                            <td>
+                                                @if ($product->grade == 'Unggulan')
+                                                    <span class="badge bg-success">Unggulan</span>
+                                                @elseif($product->grade == 'Standar')
+                                                    <span class="badge bg-primary">Standar</span>
+                                                @elseif($product->grade == 'Minus')
+                                                    <span class="badge bg-warning text-dark">Minus</span>
+                                                @else
+                                                    <span class="badge bg-light text-dark">-</span>
+                                                @endif
+                                            </td>
+
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{ route('admin.edit', $product->id) }}"

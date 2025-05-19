@@ -67,11 +67,20 @@
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select name="status" id="status" class="form-control" required>
+                    <option value="Unggulan" {{ $product->status == 'Second' ? 'selected' : '' }}>Second</option>
+                    <option value="Standar" {{ $product->status == 'Baru' ? 'selected' : '' }}>Baru</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <select name="grade" id="grdae" class="form-control" required>
                     <option value="Unggulan" {{ $product->status == 'Unggulan' ? 'selected' : '' }}>Unggulan</option>
                     <option value="Standar" {{ $product->status == 'Standar' ? 'selected' : '' }}>Standar</option>
                     <option value="Minus" {{ $product->status == 'Minus' ? 'selected' : '' }}>Minus</option>
                 </select>
             </div>
+
 
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Batal</a>
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
