@@ -20,6 +20,8 @@
         $nomorWA = '62895411200308';
         $pesan = "Halo Dinoyo Kamera, saya tertarik dengan produk *{$produk->nama_produk}* (SKU: {$produk->kode_sku}). Apakah produk ini masih tersedia dan bisakah saya mendapatkan informasi lebih lanjut?";
         $linkWA = "https://wa.me/{$nomorWA}?text=" . urlencode($pesan);
+        $gambarUtama = $produk->gambar->where('is_main', true)->first();
+        $gambarLain = $produk->gambar->where('is_main', '!=', true);
     @endphp
 
 </head>
@@ -53,8 +55,15 @@
             <div class="col-lg-6 mb-3">
                 <div id="productCarousel" class="carousel slide mb-3" data-bs-ride="false">
                     <div class="carousel-inner">
-                        @foreach ($produk->gambar as $index => $gambar)
-                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                        @if($gambarUtama)
+                            <div class="carousel-item active">
+                                <img src="/storage{{ asset($gambarUtama->path_gambar) }}"
+                                    class="d-block w-100 main-image"
+                                    alt="{{ $produk->nama_produk }}" loading="lazy">
+                            </div>
+                        @endif
+                        @foreach ($gambarLain as $gambar)
+                            <div class="carousel-item">
                                 <img src="/storage{{ asset($gambar->path_gambar) }}"
                                     class="d-block w-100 main-image"
                                     alt="{{ $produk->nama_produk }}" loading="lazy">
@@ -74,13 +83,24 @@
 
                 <!-- Thumbnail -->
                 <div class="d-flex flex-wrap gap-2 justify-content-center mt-2">
-                    @foreach ($produk->gambar as $index => $gambar)
+                    @php $thumbIndex = 0; @endphp
+                    @if($gambarUtama)
+                        <img src="/storage{{ asset($gambarUtama->path_gambar) }}"
+                            alt="{{ $produk->nama_produk }}"
+                            class="img-fluid thumbnail border border-primary"
+                            style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                            data-bs-target="#productCarousel"
+                            data-bs-slide-to="0">
+                        @php $thumbIndex++; @endphp
+                    @endif
+                    @foreach ($gambarLain as $gambar)
                         <img src="/storage{{ asset($gambar->path_gambar) }}"
                             alt="{{ $produk->nama_produk }}"
                             class="img-fluid thumbnail"
                             style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
                             data-bs-target="#productCarousel"
-                            data-bs-slide-to="{{ $index }}">
+                            data-bs-slide-to="{{ $thumbIndex }}">
+                        @php $thumbIndex++; @endphp
                     @endforeach
                 </div>
             </div>
