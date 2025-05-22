@@ -67,7 +67,7 @@
     </section>
     <section id="Kategori-Display" class="py-4" data-aos="fade-up" data-aos-delay="150">
         <div class="container">
-            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
                 <div class="col">
                     <a href="{{ route('product.index', ['kategori' => 1]) }}" class="category-link">
                         <img src="{{ asset('mCategoryIMG/1.png') }}" alt="Kamera DSLR" class="category-image">
@@ -137,7 +137,7 @@
                     <p class="text-muted mt-3">Tidak ada produk terbaru saat ini.</p>
                 </div>
             @else
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+                <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
                     @foreach ($latestProducts as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
@@ -194,7 +194,7 @@
                     <p class="text-muted mt-3">Tidak ada produk rekomendasi saat ini.</p>
                 </div>
             @else
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
+                <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
                     @foreach ($produkUnggulan as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">

@@ -11,13 +11,13 @@ class PageController extends Controller
         $latestProducts = Produk::with('gambarUtama')
             ->where('stok_produk', '>', 0)
             ->latest()
-            ->take(6)
+            ->take(5)
             ->get();
 
         $produkUnggulan = Produk::with('gambarUtama')
             ->where('grade', 'Unggulan')
             ->where('stok_produk', '>', 0)
-            ->take(6)
+            ->take(5)
             ->get();
 
         return view('mainPage', compact('latestProducts', 'produkUnggulan'));
