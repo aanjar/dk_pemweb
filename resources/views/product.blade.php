@@ -26,12 +26,12 @@
     <div class="category-pills-container bg-white border-bottom py-3">
         <div class="container">
             <div class="category-pills" data-aos="fade-right">
-                <a href="{{ route('product.index') }}" 
+                <a href="{{ route('product.index') }}"
                    class="category-pill {{ !$kategoriFilter ? 'active' : '' }}">
                     Semua
                 </a>
                 @foreach ($kategoris as $kategori)
-                    <a href="{{ route('product.index', ['kategori' => $kategori->id]) }}" 
+                    <a href="{{ route('product.index', ['kategori' => $kategori->id]) }}"
                        class="category-pill {{ $kategoriFilter == $kategori->id ? 'active' : '' }}">
                         {{ $kategori->nama_kategori }}
                     </a>
@@ -51,10 +51,10 @@
                             <span class="input-group-text">
                                 <i class="bi bi-search"></i>
                             </span>
-                            <input type="text" 
-                                   class="form-control search-input" 
-                                   name="search" 
-                                   placeholder="Cari produk..." 
+                            <input type="text"
+                                   class="form-control search-input"
+                                   name="search"
+                                   placeholder="Cari produk..."
                                    value="{{ $search ?? '' }}"
                                    autocomplete="off">
                         </div>
@@ -65,7 +65,7 @@
                         <select class="form-select" name="kategori">
                             <option value="">Semua Kategori</option>
                             @foreach ($kategoris as $kategori)
-                                <option value="{{ $kategori->id }}" 
+                                <option value="{{ $kategori->id }}"
                                         {{ $kategoriFilter == $kategori->id ? 'selected' : '' }}>
                                     {{ $kategori->nama_kategori }}
                                 </option>
@@ -99,17 +99,21 @@
                     @foreach ($products as $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="product-card">
+                                <div class="product-card @if ($product->stok_produk == 0) sold-out @endif">
                                     <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
+                                        {{-- Badge Sold Out --}}
+                                        @if ($product->stok_produk == 0)
+                                                <span class="sold-out-badge">SOLD OUT</span>
+                                        @endif
                                         @if ($product->gambarUtama)
                                             <img src="/storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
-                                                 class="product-image" 
+                                                 class="product-image"
                                                  loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"

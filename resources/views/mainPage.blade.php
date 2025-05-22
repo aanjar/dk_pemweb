@@ -139,17 +139,20 @@
                     @foreach ($latestProducts as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="product-card">
+                                <div class="product-card @if ($product->stok_produk == 0) sold-out @endif">
                                     <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
+                                        @if ($product->stok_produk == 0)
+                                                <span class="sold-out-badge">SOLD OUT</span>
+                                        @endif
                                         @if ($product->gambarUtama)
                                             <img src="storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
-                                                 class="product-image" 
+                                                 class="product-image"
                                                  loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
@@ -193,17 +196,20 @@
                     @foreach ($produkUnggulan as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="product-card">
+                                <div class="product-card @if ($product->stok_produk == 0) sold-out @endif">
                                     <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
+                                        @if ($product->stok_produk == 0)
+                                                <span class="sold-out-badge">SOLD OUT</span>
+                                        @endif
                                         @if ($product->gambarUtama)
                                             <img src="storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
-                                                 class="product-image" 
+                                                 class="product-image"
                                                  loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
