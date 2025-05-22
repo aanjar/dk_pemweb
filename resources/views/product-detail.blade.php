@@ -17,8 +17,8 @@
     <script type="module" src="{{ asset('js/productHover.js') }}"></script>
     <script type="module" src="{{ asset('js/scrollNavigation.js') }}"></script>
     @php
-        $nomorWA = '6285283800265'; // Ganti nomor WA kamu
-        $pesan = "Apakah {$produk->nama_produk} tersedia?";
+        $nomorWA = '62895411200308';
+        $pesan = "Halo Dinoyo Kamera, saya tertarik dengan produk *{$produk->nama_produk}* (SKU: {$produk->kode_sku}). Apakah produk ini masih tersedia dan bisakah saya mendapatkan informasi lebih lanjut?";
         $linkWA = "https://wa.me/{$nomorWA}?text=" . urlencode($pesan);
     @endphp
 
@@ -87,9 +87,20 @@
 
             <!-- KANAN: Detail Produk -->
             <div class="col-lg-6">
-
                 <h2>{{ $produk->nama_produk }}</h2>
-                <p class="text-danger fw-bold fs-4 mb-2">Rp {{ number_format($produk->harga_jual, 0, ',', '.') }}</p>
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <p class="text-danger fw-bold fs-4 mb-2">Rp {{ number_format($produk->harga_jual, 0, ',', '.') }}</p>
+                    {{-- TOMBOL PESAN SEKARANG DI SINI --}}
+                    @if ($produk->stok_produk > 0)
+                        <a href="{{ $linkWA }}" class="btn btn-success btn-lg flex-shrink-0" target="_blank" rel="noopener noreferrer">
+                            <i></i> Pesan Sekarang
+                        </a>
+                    @else
+                        <button class="btn btn-secondary btn-lg flex-shrink-0" disabled>
+                            <i class="bi bi-x-circle me-2"></i> Stok Habis
+                        </button>
+                    @endif
+                </div>
                 <p class="text-muted mb-2"><strong>Kode SKU:</strong> {{ $produk->kode_sku }}</p>
                 <p class="text-muted mb-2"><strong>Kategori:</strong> {{ $produk->kategori->nama_kategori }}</p>
                 <p class="text-muted mb-2"><strong>Status:</strong> {{ $produk->status }}</p>
