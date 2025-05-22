@@ -518,6 +518,290 @@ Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
             ]);
         }
 
+        // produk 11
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 10,
+            'nama_produk' => 'Front/Rear Cap Lensa Canon Mirrorless, Tutup Body',
+            'harga_jual' => 70000,
+            'stok_produk' => 10,
+            'status' => 'Baru',
+            'deskripsi_produk' => '-'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/102.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 12
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 9,
+            'nama_produk' => 'Memory Card Sandisk 32GB Ultra SDHC',
+            'harga_jual' => 250000,
+            'stok_produk' => 10,
+            'status' => 'Baru',
+            'deskripsi_produk' => 'Memory Card Sandisk 32GB Ultra SDHC'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/92.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 13
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 9,
+            'nama_produk' => 'Memory Card Sandisk 64GB Ultra SDHC',
+            'harga_jual' => 250000,
+            'stok_produk' => 10,
+            'status' => 'Baru',
+            'deskripsi_produk' => 'Memory Card Sandisk 64GB Ultra SDHC'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/93.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 14
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 8,
+            'nama_produk' => 'Baterai Kamera Canon LP-E8',
+            'harga_jual' => 250000,
+            'stok_produk' => 10,
+            'status' => 'Baru',
+            'deskripsi_produk' => 'Baterai Kamera Canon LP-E8
+
+Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/82.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 15
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 8,
+            'nama_produk' => 'Baterai Kamera Canon LP-E10',
+            'harga_jual' => 250000,
+            'stok_produk' => 0,
+            'status' => 'Baru',
+            'deskripsi_produk' => 'Baterai Kamera Canon LP-E10
+
+Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/83.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 16
+        $produk = Produk::create([
+            'kode_sku' => '-',
+            'id_kategori' => 8,
+            'nama_produk' => 'Baterai Kamera Canon LP-E12',
+            'harga_jual' => 250000,
+            'stok_produk' => 10,
+            'status' => 'Baru',
+            'deskripsi_produk' => 'Baterai Kamera Canon LP-E12
+
+Kompatibel dengan Kamera Canon R / 6D / 6DII / 7D II / 7D / 70D / 80D'
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/84.png', 'is_main' => true],
+                    ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 17
+        $produk = Produk::create([
+            'kode_sku' => '1309OCOOJT',
+            'id_kategori' => 7,
+            'nama_produk' => 'Lensa 7artisan 50mm F1.8 Fuji Kondisi Baik',
+            'harga_jual' => 750000,
+            'stok_produk' => 0,
+            'status' => 'Second',
+            'deskripsi_produk' => 'KONDISI :
+● Second Baik
+● Tombol Baik
+● Body Fisik Paint Lost
+● MF baik
+● Akurasi Baik
+● Fungsional Normal Baik
+● Jamur Tipis / Debu Micro (Tidak Berpengaruh Pada Hasil)
+
+
+
+KELENGKAPAN :
+● Lensa
+● Tutup Depan
+● Tutup Belakang
+● Nota Pembelian Dinoyo Kamera
+
+Kode Barang : #1309_DK'
+
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/111.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/112.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/113.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/114.png', 'is_main' => false],
+        ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 19
+        $produk = Produk::create([
+            'kode_sku' => '1308AFEOPL',
+            'id_kategori' => 1,
+            'nama_produk' => 'Canon 1300d + kit 18 55mm Kondisi Baik',
+            'harga_jual' => 3200000,
+            'stok_produk' => 1,
+            'status' => 'Second',
+            'deskripsi_produk' => 'KONDISI :
+● Wifi Berfungsi
+● Flash Baik
+● Tutup USB Baik
+● Tombol Baik
+● Body Paintlos
+● Jamur Tipis / Debu Micro
+(Tidak Berpengaruh pada Fungsi dan Hasil)
+● AF/MF Baik
+● LCD Baik dan Bersih
+● Fungsional Normal
+
+KELENGKAPAN:
+● Kamera
+● Lensa
+● Baterai
+● Charger
+● Nota Pembelian Dinoyo Kamera'
+
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/121.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/122.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/123.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/124.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/125.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/126.png', 'is_main' => false],
+        ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
+        // produk 17
+        $produk = Produk::create([
+            'kode_sku' => '1298COOOJT',
+            'id_kategori' => 2,
+            'nama_produk' => 'Sony a5100 + kit 16 50mm (Black) Second Kondisi Baik',
+            'harga_jual' => 5250000,
+            'stok_produk' => 1,
+            'grade' => 'Unggulan',
+            'status' => 'Second',
+            'deskripsi_produk' => 'KONDISI :
+● Toucscreen Baik
+● Wifi Berfungsi
+● Layar Flip 180°
+● Flash Baik
+● Tutup USB Baik
+● Tombol Baik
+● Body Paintlos
+● Jamur Tipis / Debu Micro
+(Tidak Berpengaruh pada Fungsi dan Hasil)
+● AF/MF Baik
+● LCD Baik dan Bersih
+● Fungsional Normal
+
+KELENGKAPAN:
+● Kamera
+● Lensa
+● Baterai
+● Charger
+● Nota Pembelian Dinoyo Kamera
+
+Kode Barang : #1298_DK'
+
+        ]);
+
+        $gambarList = [
+            ['path_gambar' => 'gambar_produk/131.png', 'is_main' => true],
+            ['path_gambar' => 'gambar_produk/132.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/133.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/134.jpg', 'is_main' => false],
+            ['path_gambar' => 'gambar_produk/135.png', 'is_main' => false],
+        ];
+
+        foreach ($gambarList as $gambar) {
+            GambarProduk::create([
+                'id_produk' => $produk->id,
+                'path_gambar' => $gambar['path_gambar'],
+                'is_main' => $gambar['is_main'],
+            ]);
+        }
+
 
 
     }
