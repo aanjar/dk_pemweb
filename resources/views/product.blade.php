@@ -148,7 +148,7 @@
                             </li>
                         @else
                             <li class="page-item">
-                                <a class="page-link" href="{{ $products->previousPageUrl() }}">
+                                <a class="page-link" href="{{ $products->previousPageUrl() . '&kategori=' . $kategoriFilter . '&sort=' . $sort }}">
                                     <i class="bi bi-chevron-left"></i>
                                 </a>
                             </li>
@@ -156,13 +156,13 @@
 
                         @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                             <li class="page-item {{ $products->currentPage() == $page ? 'active' : '' }}">
-                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                <a class="page-link" href="{{ $url . '&kategori=' . $kategoriFilter . '&sort=' . $sort }}">{{ $page }}</a>
                             </li>
                         @endforeach
 
                         @if ($products->hasMorePages())
                             <li class="page-item">
-                                <a class="page-link" href="{{ $products->nextPageUrl() }}">
+                                <a class="page-link" href="{{ $products->nextPageUrl() . '&kategori=' . $kategoriFilter . '&sort=' . $sort }}">
                                     <i class="bi bi-chevron-right"></i>
                                 </a>
                             </li>
