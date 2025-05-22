@@ -29,7 +29,7 @@ class AdminProductController extends Controller
     {
         //
         $kategori = Kategori::all();
-        return view('admin.index', compact('kategori'));
+        return view('index', compact('kategori'));
     }
 
     /**
@@ -77,7 +77,7 @@ class AdminProductController extends Controller
         }
 
 
-        return redirect()->route('admin.index')->with('success', 'Produk Berhasil Ditambahkan');
+        return redirect()->route('index')->with('success', 'Produk Berhasil Ditambahkan');
     }
 
     /**
@@ -90,7 +90,7 @@ class AdminProductController extends Controller
     public function edit(string $id)
     {
         //
-        return redirect()->route('admin.index', ['edit'=> $id]);
+        return redirect()->route('index', ['edit'=> $id]);
     }
 
     /**
@@ -150,7 +150,7 @@ class AdminProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.index')->with('success', 'Produk berhasil diperbarui');
+        return redirect()->route('index')->with('success', 'Produk berhasil diperbarui');
     }
 
     public function deleteImage($id)
@@ -181,7 +181,7 @@ class AdminProductController extends Controller
                 Storage::disk('public')->delete($g->path_gambar);
                 $product->delete();
 
-                return redirect()->route('admin.index')->with('success', 'Produk Berhasil Dihapus');
+                return redirect()->route('index')->with('success', 'Produk Berhasil Dihapus');
             }
         }
     }

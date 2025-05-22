@@ -105,7 +105,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ isset($product) ? route('admin.update', $product->id) : route('admin.store') }}"
+                        <form method="POST" action="{{ isset($product) ? route('admin.update', $product->id) : route('store') }}"
                             class="needs-validation" enctype="multipart/form-data" novalidate>
                             @csrf
                             @if(isset($product)) @method('PUT') @endif
@@ -184,7 +184,7 @@
                                     <label for="grade" class="form-label">Grade</label>
                                     <select class="form-select" id="grade" name="grade" required>
                                         <option value="Unggulan" {{ old('grade', isset($product) ? $product->grade : '') == 'Unggulan' ? 'selected' : '' }}>Unggulan</option>
-                                        <option value="Standar" {{ old('grade', isset($product) ? $product->grade : '') == 'Standar' ? 'selected' : '' }}>Standar</option>
+                                        <option value="Standar" {{ old('grade', isset($product) ? $product->grade : 'Standar') == 'Standar' ? 'selected' : '' }}>Standar</option>
                                         <option value="Minus" {{ old('grade', isset($product) ? $product->grade : '') == 'Minus' ? 'selected' : '' }}>Minus</option>
                                     </select>
                                     @error('grade')
@@ -234,7 +234,7 @@
                                         {{ isset($product) ? 'Update Produk' : 'Tambah Produk' }}
                                     </button>
                                     @if(isset($product))
-                                        <a href="{{ route('admin.index') }}" class="btn btn-secondary">Batal</a>
+                                        <a href="{{ route('index') }}" class="btn btn-secondary">Batal</a>
                                     @endif
                                 </div>
                             </div>
@@ -315,7 +315,7 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{ route('admin.index', ['edit' => $product->id]) }}"
+                                                    <a href="{{ route('index', ['edit' => $product->id]) }}"
                                                         class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>

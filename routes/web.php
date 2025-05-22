@@ -30,6 +30,5 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    // Route::get("/", [PageController::class,"admin"])->name('admin.index');
     Route::resource('/', AdminProductController::class);
 });

@@ -92,14 +92,15 @@
                     <p class="text-danger fw-bold fs-4 mb-2">Rp {{ number_format($produk->harga_jual, 0, ',', '.') }}</p>
                     {{-- TOMBOL PESAN SEKARANG DI SINI --}}
                     @if ($produk->stok_produk > 0)
-                        <a href="{{ $linkWA }}" class="btn btn-success btn-lg flex-shrink-0" target="_blank" rel="noopener noreferrer">
-                            <i></i> Pesan Sekarang
+                        <a href="{{ $linkWA }}" class="btn btn-lg flex-shrink-0 btn-custom-whatsapp" target="_blank" rel="noopener noreferrer">
+                             Pesan Sekarang
                         </a>
                     @else
                         <button class="btn btn-secondary btn-lg flex-shrink-0" disabled>
                             <i class="bi bi-x-circle me-2"></i> Stok Habis
                         </button>
                     @endif
+
                 </div>
                 <p class="text-muted mb-2"><strong>Kode SKU:</strong> {{ $produk->kode_sku }}</p>
                 <p class="text-muted mb-2"><strong>Kategori:</strong> {{ $produk->kategori->nama_kategori }}</p>

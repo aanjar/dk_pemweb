@@ -268,3 +268,31 @@
         font-size: 0.9rem;
     }
 }
+
+/* Custom WhatsApp Button for Product Detail */
+.btn-custom-whatsapp {
+    background-color: var(--secondary-color); /* Menggunakan warna dari variabel Anda */
+    color: white; /* Teks putih */
+    border-color: var(--secondary-color); /* Warna border sesuai background */
+    transition: all 0.3s ease; /* Transisi halus untuk efek hover */
+}
+
+.btn-custom-whatsapp:hover {
+    background-color: darken(var(--secondary-color), 10%); /* Menggelapkan warna sedikit saat hover */
+    border-color: darken(var(--secondary-color), 10%); /* Border juga ikut gelap */
+    transform: translateY(-2px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambah bayangan */
+}
+
+/* Jika Anda menggunakan SCSS/SASS, fungsi darken() akan bekerja.
+   Jika Anda hanya menggunakan CSS biasa, Anda perlu menghitung nilai darken secara manual:
+   Warna asli: #EA4E2D
+   Warna yang lebih gelap (sekitar 10%): #C53E24 (gunakan color picker online untuk hasil presisi)
+*/
+/* Contoh jika hanya pakai CSS biasa: */
+.btn-custom-whatsapp:hover {
+    background-color: #C53E24; /* Nilai warna yang sudah sedikit gelap */
+    border-color: #C53E24;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
