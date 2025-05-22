@@ -25,3 +25,11 @@ Route::get("/admin", [PageController::class,"admin"]);
 Route::get("/katalog", [ProductController::class, "index"])->name('product.index');
 Route::get("/katalog/{id}", [ProductController::class, "show"])->name('product.show');
 Route::resource('admin', AdminProductController::class);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    // Route::get("/", [PageController::class,"admin"])->name('admin.index');
+    Route::resource('/', AdminProductController::class);
+});
