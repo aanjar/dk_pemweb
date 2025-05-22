@@ -130,9 +130,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        window.galleryImages = @json($galleryImages->map(function($g) { return asset('storage/' . $g->path_gambar); })->toArray());
+    </script>
+    <script src="{{ asset('js/productDetailGallery.js') }}"></script>
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
         let currentGalleryIndex = 0;
-        const galleryImages = @json($galleryImages->map(fn($g) => asset('storage/' . $g->path_gambar))->toArray());
+        const galleryImages = @json($galleryImages->map(function($g) { return asset('storage/' . $g->path_gambar); })->toArray());
         const mainImg = document.getElementById('mainProductImage');
         const thumbs = document.querySelectorAll('.thumbnail');
         const prevBtn = document.getElementById('galleryPrevBtn');

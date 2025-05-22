@@ -378,21 +378,13 @@
         // Preview + pilih gambar utama
         function previewGambar(event) {
             const previewContainer = document.getElementById('preview-container');
-            const files = event.target.files;
-            
-            // Clear existing previews if this is a new upload
-            if (!previewContainer.querySelector('.image-container')) {
-                previewContainer.innerHTML = '';
-            }
-            
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
+            const files = Array.from(event.target.files);
+            previewContainer.innerHTML = '';
+            files.forEach((file, i) => {
                 const reader = new FileReader();
-                
                 reader.onload = function(e) {
                     const col = document.createElement('div');
                     col.className = 'col-4 image-container';
-                    
                     col.innerHTML = `
                         <div class="card">
                             <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
@@ -404,15 +396,29 @@
                                         Jadikan Gambar Utama
                                     </label>
                                 </div>
+                                <button type="button" class="btn btn-danger btn-sm mt-2 remove-image-new" data-index="${i}">Hapus</button>
                             </div>
                         </div>
                     `;
-                    
                     previewContainer.appendChild(col);
                 }
-                
                 reader.readAsDataURL(file);
-            }
+            });
+
+            // Tambahkan event listener untuk hapus gambar baru
+            setTimeout(() => {
+                document.querySelectorAll('.remove-image-new').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.getAttribute('data-index'));
+                        files.splice(idx, 1);
+                        // Update input file agar sesuai dengan files yang tersisa
+                        const dataTransfer = new DataTransfer();
+                        files.forEach(f => dataTransfer.items.add(f));
+                        event.target.files = dataTransfer.files;
+                        previewGambar({ target: event.target });
+                    });
+                });
+            }, 100);
         }
 
         document.getElementById('preview-container').addEventListener('click', function(event) {
