@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
+    <link rel="shortcut icon" href="{{ asset('mainIMG/logoDK.png') }}" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -26,7 +27,7 @@
 <body>
     <div class="login-container">
         <h2 class="text-center">Login Admin</h2>
-        <h2 class="text-center mb-4">Dinoyo Camera</h2>
+        <h2 class="text-center mb-4">Dinoyo Kamera</h2>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf <div class="mb-3">
