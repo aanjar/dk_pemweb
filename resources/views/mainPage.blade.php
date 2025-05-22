@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinoyo Cam</title>
+    <title>Dinoyo Kamera</title>
+    <link rel="shortcut icon" href="{{ asset('mainIMG/logoDK.png') }}" type="image/png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -139,17 +141,20 @@
                     @foreach ($latestProducts as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="product-card">
+                                <div class="product-card @if ($product->stok_produk == 0) sold-out @endif">
                                     <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
+                                        @if ($product->stok_produk == 0)
+                                                <span class="sold-out-badge">SOLD OUT</span>
+                                        @endif
                                         @if ($product->gambarUtama)
                                             <img src="storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
-                                                 class="product-image" 
+                                                 class="product-image"
                                                  loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"
@@ -193,17 +198,20 @@
                     @foreach ($produkUnggulan as $index => $product)
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                             <a href="{{ route('product.show', $product->id) }}" class="text-decoration-none">
-                                <div class="product-card">
+                                <div class="product-card @if ($product->stok_produk == 0) sold-out @endif">
                                     <div class="product-image-wrapper">
                                         @if ($product->grade === 'Unggulan')
                                             <span class="featured-badge">
                                                 <i class="bi bi-star-fill me-1"></i>Unggulan
                                             </span>
                                         @endif
+                                        @if ($product->stok_produk == 0)
+                                                <span class="sold-out-badge">SOLD OUT</span>
+                                        @endif
                                         @if ($product->gambarUtama)
                                             <img src="storage{{ asset($product->gambarUtama->path_gambar) }}"
                                                  alt="{{ $product->nama_produk }}"
-                                                 class="product-image" 
+                                                 class="product-image"
                                                  loading="lazy">
                                         @else
                                             <img src="{{ asset('images/placeholder.jpg') }}"

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Dinoyo Kamera</title>
+    <link rel="shortcut icon" href="{{ asset('mainIMG/logoDK.png') }}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -23,14 +24,24 @@
             <div class="dashboard-header mb-4">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1>Dashboard Admin</h1>
-                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda disini.</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <h1>Dashboard Admin</h1>
+                            <form action="{{ route('logout') }}" method="POST" class="m-0"> {{-- m-0 removes default margin --}}
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-box-arrow-right me-1"></i> Logout
+                                </button>
+                            </form>
+                        </div>
+                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda
+                            disini.</p>
                     </div>
                     <div class="col-md-4 text-md-end">
                         <span class="badge bg-primary p-2">
                             <i class="bi bi-clock me-1"></i>
                             {{ now()->format('d M Y') }}
                         </span>
+
                     </div>
                 </div>
             </div>
@@ -303,12 +314,12 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <div class="btn-group">
+                                                <div class="d-flex gap-2">
                                                     <a href="{{ route('admin.index', ['edit' => $product->id]) }}"
                                                         class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <form action="{{ route('admin.destroy', $product->id) }}"
+                                                    <form action="{{ route('destroy', $product->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')

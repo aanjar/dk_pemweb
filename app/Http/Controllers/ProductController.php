@@ -14,13 +14,13 @@ class ProductController extends Controller
     {
         // Ambil produk dengan relasi gambar dan kategori
         $produk = Produk::with(['gambar', 'kategori'])->findOrFail($id);
-        
+
         return view('product-detail', compact('produk'));
     }
 
     public function index(Request $request)
         {
-          // Ambil semua kategori untuk dropdown
+        // Ambil semua kategori untuk dropdown
         $kategoris = Kategori::all();
 
         // Ambil parameter dari request
@@ -33,7 +33,14 @@ class ProductController extends Controller
 
         // Filter pencarian
         if ($search) {
-            $query->where('nama_produk', 'LIKE', '%' . $search . '%');
+            $query->where(function ($q) use ($search) {
+                $q->where('nama_produk', 'LIKE', '%' . $search . '%')
+                  ->orWhere('kode_sku', 'LIKE', '%' . $search . '%') 
+                  ->orWhere('deskripsi_produk', 'LIKE', '%' . $search . '%')
+                  ->orWhereHas('kategori', function ($qKategori) use ($search) {
+                      $qKategori->where('nama_kategori', 'LIKE', '%' . $search . '%');
+                  });
+            });
         }
 
         // Filter kategori
@@ -59,7 +66,7 @@ class ProductController extends Controller
                 break;
         }
 
-        // Pagination (8 produk per halaman)
+        // Pagination (15 produk per halaman)
         $products = $query->paginate(15);
 
         return view('product', compact('products', 'kategoris', 'search', 'kategoriFilter', 'sort'));
