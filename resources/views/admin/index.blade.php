@@ -23,7 +23,15 @@
             <div class="dashboard-header mb-4">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1>Dashboard Admin</h1>
+                        <div class="d-flex align-items-center gap-3">
+                            <h1>Dashboard Admin</h1>
+                            <form action="{{ route('logout') }}" method="POST" class="m-0"> {{-- m-0 removes default margin --}}
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-box-arrow-right me-1"></i> Logout
+                                </button>
+                            </form>
+                        </div>
                         <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda
                             disini.</p>
                     </div>
@@ -32,6 +40,7 @@
                             <i class="bi bi-clock me-1"></i>
                             {{ now()->format('d M Y') }}
                         </span>
+
                     </div>
                 </div>
             </div>
@@ -95,7 +104,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation"
+                        <form method="POST" action="{{ route('store') }}" class="needs-validation"
                             enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row g-3">
@@ -255,12 +264,12 @@
                                             </td>
 
                                             <td>
-                                                <div class="btn-group">
-                                                    <a href="{{ route('admin.edit', $product->id) }}"
+                                                <div class="d-flex gap-2">
+                                                    <a href="{{ route('edit', $product->id) }}"
                                                         class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <form action="{{ route('admin.destroy', $product->id) }}"
+                                                    <form action="{{ route('destroy', $product->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
