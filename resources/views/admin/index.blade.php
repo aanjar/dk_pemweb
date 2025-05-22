@@ -405,27 +405,52 @@
             }, 100);
         }
 
-        // Hapus gambar lama via AJAX
-        document.querySelectorAll('.remove-image').forEach(button => {
-            button.addEventListener('click', function() {
-                const imageId = this.dataset.imageId;
-                const container = this.closest('.image-container');
+        document.getElementById('preview-container').addEventListener('click', function(event) {
+            // Cek apakah yang diklik adalah tombol dengan kelas 'remove-image'
+            if (event.target.classList.contains('remove-image')) {
+                const button = event.target;
+                const imageId = button.dataset.imageId;
+                const container = button.closest('.image-container');
 
-                fetch(`/admin/delete-image/${imageId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                }).then(response => response.json())
-                  .then(data => {
-                      if (data.success) {
-                          container.remove();
-                          alert('Gambar berhasil dihapus');
-                      } else {
-                          alert('Gagal menghapus gambar');
-                      }
-                  });
-            });
+                if (confirm('Apakah Anda yakin ingin menghapus gambar ini?')) { // Konfirmasi hapus
+                    // GUNAKAN NAMA RUTE YANG BENAR 'admin.delete.image'
+                    const url = '{{ route("admin.delete.image", ["id" => ":imageId"]) }}';
+                    const finalUrl = url.replace(':imageId', imageId);
+
+                    fetch(finalUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    }).then(response => response.json())
+                      .then(data => {
+                          if (data.success) {
+                              container.remove();
+                              // Opsional: Cek apakah gambar utama dihapus dan sesuaikan radio button
+                              const mainImageRadio = document.querySelector('input[name="main_image_existing"]:checked');
+                              if (!mainImageRadio && document.querySelectorAll('.image-container').length > 0) {
+                                  // Jika tidak ada gambar utama yang terpilih, pilih yang pertama jika ada
+                                  document.querySelector('.image-container input[type="radio"]').checked = true;
+                              }
+                              alert('Gambar berhasil dihapus');
+                          } else {
+                              alert('Gagal menghapus gambar: ' + (data.message || 'Unknown error'));
+                          }
+                      })
+                      .catch(error => {
+                          console.error('Error during fetch:', error);
+                          alert('Terjadi kesalahan jaringan atau server.');
+                      });
+                }
+            }
+            // Logic for main_image_index for existing images (radio button click)
+            if (event.target.name === 'main_image_existing') {
+                // Hapus checked dari radio button gambar baru jika ada
+                const newImageRadio = document.querySelector('input[name="main_image_new"]:checked');
+                if (newImageRadio) {
+                    newImageRadio.checked = false;
+                }
+            }
         });
 
         // Search functionality

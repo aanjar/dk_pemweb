@@ -161,8 +161,8 @@ class AdminProductController extends Controller
         $gambar = GambarProduk::findOrFail($id);
 
         // Hapus file dari storage
-        if (Storage::disk('public')->exists($gambar->path)) {
-            Storage::disk('public')->delete($gambar->path);
+        if (Storage::disk('public')->exists($gambar->path_gambar)) {
+            Storage::disk('public')->delete($gambar->path_gambar);
         }
 
         $gambar->delete();
