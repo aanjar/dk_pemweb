@@ -40,7 +40,7 @@ class Produk extends Model
 
     public function semuaGambar()
     {
-        return $this->hasMany(GambarProduk::class);
+        return $this->hasMany(GambarProduk::class, 'id_produk', 'id');
     }
 
 }

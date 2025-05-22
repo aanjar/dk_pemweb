@@ -25,7 +25,8 @@
         @endif
 
 
-        <form action="{{ route('admin.update', $product->id) }}" method="POST" class="form">
+        <form action="{{ route('admin.update', $product->id) }}" method="POST" class="form"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -81,12 +82,96 @@
                 </select>
             </div>
 
+            <div class="row mb-3">
+                <label class="form-label">Gambar yang Sudah Ada</label>
+                @foreach ($product->gambar as $index => $gambar)
+                    <div class="col-md-3 text-center position-relative">
+                        <img src="{{ asset('storage/' . $gambar->path_gambar) }}" class="img-thumbnail"
+                            style="width: 100%; height: 200px; object-fit: cover;">
+
+                        <!-- Radio untuk memilih gambar utama -->
+                        <div class="form-check mt-2">
+                            <input type="radio" class="form-check-input" name="main_image_existing"
+                                value="{{ $gambar->id }}" id="main_image_{{ $gambar->id }}"
+                                {{ $gambar->is_main ? 'checked' : '' }}>
+                            <label class="form-check-label" for="main_image_{{ $gambar->id }}">Jadikan Gambar
+                                Utama</label>
+                        </div>
+
+                        <!-- Tombol hapus -->
+                        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0"
+                            onclick="hapusGambarLama('{{ $gambar->id }}')">x</button>
+
+                        <!-- Input hidden untuk menandai penghapusan -->
+                        <input type="hidden" name="hapus_gambar_lama[]" value=""
+                            id="hapus_gambar_{{ $gambar->id }}">
+                    </div>
+                @endforeach
+            </div>
+
+
+            <div class="col-md-6">
+                <label for="gambar_produk" class="form-label">Gambar Produk</label>
+                <div class="input-group mb-2">
+                    <span class="input-group-text"><i class="bi bi-images"></i></span>
+                    <input type="file" class="form-control" id="gambar_produk" name="gambar_produk[]" multiple
+                        accept="image/*" onchange="previewGambar(event)">
+                </div>
+                <div id="preview-container" class="row g-2"></div>
+                <small class="text-muted">Pilih salah satu gambar sebagai gambar utama.</small>
+            </div>
+
 
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">Batal</a>
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
         </form>
     </div>
 
+    <script>
+        function previewGambar(event) {
+            const files = event.target.files;
+            const container = document.getElementById('preview-container');
+            container.innerHTML = ''; // Kosongkan preview
+
+            for (let i = 0; i < files.length; i++) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const col = document.createElement('div');
+                    col.classList.add('col-4');
+
+                    col.innerHTML = `
+                <div class="card">
+                    <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="main_image_new" value="${i}" id="mainImage${i}" ${i === 0 ? 'checked' : ''}>
+                            <label class="form-check-label" for="mainImage${i}">
+                                Jadikan Gambar Utama
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `;
+                    container.appendChild(col);
+                }
+
+                reader.readAsDataURL(files[i]);
+            }
+        }
+
+        function hapusGambarLama(id) {
+            const el = document.getElementById('existing-image-' + id);
+            if (el) el.remove();
+
+            // Tambahkan hidden input agar backend tahu gambar ini harus dihapus
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'hapus_gambar_lama[]';
+            input.value = id;
+            document.querySelector('form').appendChild(input);
+        }
+    </script>
 </body>
 
 </html>

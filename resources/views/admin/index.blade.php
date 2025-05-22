@@ -24,8 +24,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1>Dashboard Admin</h1>
-                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda
-                            disini.</p>
+                        <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda disini.</p>
                     </div>
                     <div class="col-md-4 text-md-end">
                         <span class="badge bg-primary p-2">
@@ -59,7 +58,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">Produk Aktif</h6>
-                                <h3 class="mb-0">{{ $products->where('status', 'aktif')->count() }}</h3>
+                                <h3 class="mb-0">{{ $products->where('status', 'Baru')->count() }}</h3>
                             </div>
                         </div>
                     </div>
@@ -79,13 +78,13 @@
                 </div>
             </div>
 
-            <!-- Add Product Form -->
+            <!-- Add/Edit Product Form -->
             <section class="mb-4">
                 <div class="admin-card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h2 class="mb-0">
                             <i class="bi bi-plus-circle me-2"></i>
-                            Tambah Produk
+                            {{ isset($product) ? 'Edit Produk' : 'Tambah Produk' }}
                         </h2>
                     </div>
                     <div class="card-body">
@@ -95,86 +94,137 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.store') }}" class="needs-validation"
-                            enctype="multipart/form-data" novalidate>
+                        <form method="POST" action="{{ isset($product) ? route('admin.update', $product->id) : route('admin.store') }}"
+                            class="needs-validation" enctype="multipart/form-data" novalidate>
                             @csrf
+                            @if(isset($product)) @method('PUT') @endif
+
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="kode_sku" class="form-label">Kode SKU</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-upc"></i></span>
                                         <input type="text" class="form-control" id="kode_sku" name="kode_sku"
-                                            required>
+                                            value="{{ old('kode_sku', isset($product) ? $product->kode_sku : '') }}" required>
                                     </div>
+                                    @error('kode_sku')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="nama_produk" class="form-label">Nama Produk</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-camera"></i></span>
                                         <input type="text" class="form-control" id="nama_produk" name="nama_produk"
-                                            required>
+                                            value="{{ old('nama_produk', isset($product) ? $product->nama_produk : '') }}" required>
                                     </div>
+                                    @error('nama_produk')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="harga_jual" class="form-label">Harga</label>
                                     <div class="input-group">
                                         <span class="input-group-text">Rp</span>
                                         <input type="number" class="form-control" id="harga_jual" name="harga_jual"
-                                            required>
+                                            value="{{ old('harga_jual', isset($product) ? $product->harga_jual : '') }}" required>
                                     </div>
+                                    @error('harga_jual')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="id_kategori" class="form-label">Kategori</label>
                                     <select class="form-select" id="id_kategori" name="id_kategori" required>
                                         <option value="">Pilih Kategori...</option>
-                                        <option value="1">Kamera</option>
-                                        <option value="2">Lensa</option>
-                                        <option value="3">Aksesoris</option>
+                                        @foreach($kategori as $kat)
+                                            <option value="{{ $kat->id }}"
+                                                {{ old('id_kategori', isset($product) ? $product->id_kategori : '') == $kat->id ? 'selected' : '' }}>
+                                                {{ $kat->nama_kategori }}
+                                            </option>
+                                        @endforeach
                                     </select>
+                                    @error('id_kategori')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="stok_produk" class="form-label">Stok</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-boxes"></i></span>
-                                        <input type="number" class="form-control" id="stok_produk"
-                                            name="stok_produk" required>
+                                        <input type="number" class="form-control" id="stok_produk" name="stok_produk"
+                                            value="{{ old('stok_produk', isset($product) ? $product->stok_produk : '') }}" required>
                                     </div>
+                                    @error('stok_produk')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status" required>
-                                        <option value="Second">Second</option>
-                                        <option value="Baru">Baru</option>
+                                        <option value="Second" {{ old('status', isset($product) ? $product->status : '') == 'Second' ? 'selected' : '' }}>Second</option>
+                                        <option value="Baru" {{ old('status', isset($product) ? $product->status : '') == 'Baru' ? 'selected' : '' }}>Baru</option>
                                     </select>
+                                    @error('status')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="grade" class="form-label">Grade</label>
                                     <select class="form-select" id="grade" name="grade" required>
-                                        <option value="Unggulan">Unggulan</option>
-                                        <option value="Standar">Standar</option>
-                                        <option value="Minus">Minus</option>
+                                        <option value="Unggulan" {{ old('grade', isset($product) ? $product->grade : '') == 'Unggulan' ? 'selected' : '' }}>Unggulan</option>
+                                        <option value="Standar" {{ old('grade', isset($product) ? $product->grade : '') == 'Standar' ? 'selected' : '' }}>Standar</option>
+                                        <option value="Minus" {{ old('grade', isset($product) ? $product->grade : '') == 'Minus' ? 'selected' : '' }}>Minus</option>
                                     </select>
+                                    @error('grade')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="gambar_produk" class="form-label">Gambar Produk</label>
                                     <div class="input-group mb-2">
                                         <span class="input-group-text"><i class="bi bi-images"></i></span>
-                                        <input type="file" class="form-control" id="gambar_produk"
-                                            name="gambar_produk[]" multiple accept="image/*"
+                                        <input type="file" class="form-control" id="gambar_produk" name="gambar_produk[]" multiple accept="image/*"
                                             onchange="previewGambar(event)">
                                     </div>
-                                    <div id="preview-container" class="row g-2"></div>
+                                    <div id="preview-container" class="row g-2">
+                                        @if(isset($product) && $product->gambar)
+                                            @foreach($product->gambar as $index => $gambar)
+                                                <div class="col-4 image-container" data-image-id="{{ $gambar->id }}">
+                                                    <div class="card">
+                                                        <img src="{{ asset('storage/' . $gambar->path_gambar) }}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                                                        <div class="card-body text-center">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="main_image_existing" value="{{ $gambar->id }}"
+                                                                    id="mainImage{{ $gambar->id }}" {{ $gambar->is_main ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="mainImage{{ $gambar->id }}">
+                                                                    Jadikan Gambar Utama
+                                                                </label>
+                                                            </div>
+                                                            <button type="button" class="btn btn-danger btn-sm mt-2 remove-image" data-image-id="{{ $gambar->id }}">Hapus</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
                                     <small class="text-muted">Pilih salah satu gambar sebagai gambar utama.</small>
                                 </div>
                                 <div class="col-12">
                                     <label for="deskripsi_produk" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="3" required></textarea>
+                                    <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="3" required>{{ old('deskripsi_produk', isset($product) ? $product->deskripsi_produk : '') }}</textarea>
+                                    @error('deskripsi_produk')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-success">
                                         <i class="bi bi-plus-circle me-2"></i>
-                                        Tambah Produk
+                                        {{ isset($product) ? 'Update Produk' : 'Tambah Produk' }}
                                     </button>
+                                    @if(isset($product))
+                                        <a href="{{ route('admin.index') }}" class="btn btn-secondary">Batal</a>
+                                    @endif
                                 </div>
                             </div>
                         </form>
@@ -192,8 +242,7 @@
                         </h2>
                         <div class="d-flex gap-2">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Cari produk..."
-                                    id="searchProduct">
+                                <input type="text" class="form-control" placeholder="Cari produk..." id="searchProduct">
                                 <button class="btn btn-outline-secondary" type="button">
                                     <i class="bi bi-search"></i>
                                 </button>
@@ -223,7 +272,7 @@
                                             <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td>
                                             <td>
                                                 <span class="badge bg-info">
-                                                    {{ $product->id_kategori }}
+                                                    {{ $product->kategori->nama_kategori }}
                                                 </span>
                                             </td>
                                             <td>
@@ -253,10 +302,9 @@
                                                     <span class="badge bg-light text-dark">-</span>
                                                 @endif
                                             </td>
-
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('admin.edit', $product->id) }}"
+                                                    <a href="{{ route('admin.index', ['edit' => $product->id]) }}"
                                                         class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
@@ -274,7 +322,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="7" class="text-center py-4">
+                                            <td colspan="8" class="text-center py-4">
                                                 <div class="text-muted">
                                                     <i class="bi bi-inbox fs-1 d-block mb-2"></i>
                                                     Belum ada produk
@@ -311,38 +359,69 @@
             })
         })()
 
-        //preview + pilih gambar utama
+        // Preview + pilih gambar utama
         function previewGambar(event) {
             const files = event.target.files;
             const container = document.getElementById('preview-container');
-            container.innerHTML = ''; // Kosongkan preview
+            // Kosongkan hanya preview gambar baru, pertahankan gambar lama
+            document.querySelectorAll('.image-container:not([data-image-id])').forEach(el => el.remove());
 
             for (let i = 0; i < files.length; i++) {
                 const reader = new FileReader();
-
                 reader.onload = function(e) {
                     const col = document.createElement('div');
-                    col.classList.add('col-4');
-
+                    col.classList.add('col-4', 'image-container');
                     col.innerHTML = `
-                <div class="card">
-                    <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="main_image_index" value="${i}" id="mainImage${i}" ${i === 0 ? 'checked' : ''}>
-                            <label class="form-check-label" for="mainImage${i}">
-                                Jadikan Gambar Utama
-                            </label>
+                        <div class="card">
+                            <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="main_image_new" value="${i}" id="mainImageNew${i}" ${i === 0 ? 'checked' : ''}>
+                                    <label class="form-check-label" for="mainImageNew${i}">
+                                        Jadikan Gambar Utama
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-sm mt-2 remove-image-new">Hapus</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            `;
+                    `;
                     container.appendChild(col);
                 }
-
                 reader.readAsDataURL(files[i]);
             }
+
+            // Tambahkan event listener untuk tombol hapus gambar baru
+            setTimeout(() => {
+                document.querySelectorAll('.remove-image-new').forEach(button => {
+                    button.addEventListener('click', function() {
+                        this.closest('.image-container').remove();
+                    });
+                });
+            }, 100);
         }
+
+        // Hapus gambar lama via AJAX
+        document.querySelectorAll('.remove-image').forEach(button => {
+            button.addEventListener('click', function() {
+                const imageId = this.dataset.imageId;
+                const container = this.closest('.image-container');
+
+                fetch(`/admin/delete-image/${imageId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          container.remove();
+                          alert('Gambar berhasil dihapus');
+                      } else {
+                          alert('Gagal menghapus gambar');
+                      }
+                  });
+            });
+        });
 
         // Search functionality
         document.getElementById('searchProduct').addEventListener('keyup', function() {
