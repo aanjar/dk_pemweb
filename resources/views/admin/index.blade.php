@@ -50,7 +50,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">Total Produk</h6>
-                                <h3 class="mb-0">{{ count($products) }}</h3>
+                                <h3 class="mb-0">{{ $totalProduk }}</h3>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">Stok Menipis</h6>
-                                <h3 class="mb-0">{{ $products->where('stok_produk', '<', 5)->count() }}</h3>
+                                <h3 class="mb-0">{{ $stokMenipis }}</h3>
                             </div>
                         </div>
                     </div>

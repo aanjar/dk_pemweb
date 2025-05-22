@@ -65,7 +65,7 @@
             <a href="/katalog" class="text-decoration-none">Lihat Selengkapnya</a>
         </div>
     </section>
-    <section id="Kategori-Display" class="py-4">
+    <section id="Kategori-Display" class="py-4" data-aos="fade-up" data-aos-delay="150">
         <div class="container">
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
                 <div class="col">
@@ -129,7 +129,7 @@
         </div>
     </section>
 
-    <section class="py-4">
+    <section class="py-4" data-aos="fade-up" data-aos-delay="200">
         <div class="container">
             @if ($latestProducts->isEmpty())
                 <div class="text-center py-5" data-aos="fade-up">
@@ -186,7 +186,7 @@
         </div>
     </section>
 
-    <section class="py-4">
+    <section class="py-4" data-aos="fade-up" data-aos-delay="250">
         <div class="container">
             @if ($produkUnggulan->isEmpty())
                 <div class="text-center py-5" data-aos="fade-up">
@@ -242,7 +242,7 @@
             <h2 class="section-title">Brands</h2>
         </div>
     </section>
-    <section id="Kategori-Display-Brand" class="py-4">
+    <section id="Kategori-Display-Brand" class="py-4" data-aos="fade-up" data-aos-delay="300">
         <div class="container">
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-8 g-3">
                 <div class="col"><img src="https://admin.focusnusantara.com/media/wysiwyg/brands/Logo_All_Brand_Home_-__sony.jpg" alt="Sony" class="img-fluid"></div>
@@ -266,7 +266,7 @@
     </section>
 
     <!-- YouTube Section -->
-    <section class="youtube-section">
+    <section class="youtube-section" data-aos="fade-up" data-aos-delay="350">
         <div class="container">
             <div class="youtube-title">
                 <h2>Dinoyo Kamera Channel</h2>
@@ -283,12 +283,12 @@
     </section>
 
     <!-- Benefits -->
-    <section id="Benefit" class="pt-4">
+    <section id="Benefit" class="pt-4" data-aos="fade-up" data-aos-delay="400">
         <div class="container">
             <h2 class="section-title">Benefit</h2>
         </div>
     </section>
-    <section id="Benefit-Item" class="py-4">
+    <section id="Benefit-Item" class="py-4" data-aos="fade-up" data-aos-delay="450">
         <div class="container">
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 text-center">
                 <div class="col">
