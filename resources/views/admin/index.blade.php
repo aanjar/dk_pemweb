@@ -42,7 +42,7 @@
 
             <!-- Quick Stats -->
             <div class="row g-4 mb-4">
-                <div class="col-md-6 col-12">
+                <div class="col-md-4 col-12">
                     <div class="admin-card">
                         <div class="card-body d-flex align-items-center">
                             <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-md-4 col-12">
                     <div class="admin-card">
                         <div class="card-body d-flex align-items-center">
                             <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
@@ -64,6 +64,19 @@
                             <div>
                                 <h6 class="mb-1">Stok Menipis</h6>
                                 <h3 class="mb-0">{{ $stokMenipis }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="admin-card">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
+                                <i class="bi bi-x-circle text-danger fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Produk Sold Out</h6>
+                                <h3 class="mb-0">{{ $soldOutProducts }}</h3>
                             </div>
                         </div>
                     </div>

@@ -20,8 +20,9 @@ class AdminProductController extends Controller
         $kategori = Kategori::all();
         $product = $request->has('edit') ? Produk::with('gambar')->findOrFail($request->edit) : null;
         $totalProduk = Produk::count();
-        $stokMenipis = Produk::where('stok_produk', '<', 5)->count();
-        return view('admin.index', compact('products', 'kategori', 'product', 'totalProduk', 'stokMenipis'));
+        $stokMenipis = Produk::where('stok_produk', '<', 5)->where('stok_produk', '>', 0)->count();
+        $soldOutProducts = Produk::where('stok_produk', '=', 0)->count();
+        return view('admin.index', compact('products', 'kategori', 'product', 'totalProduk', 'stokMenipis', 'soldOutProducts'));
     }
 
     /**
