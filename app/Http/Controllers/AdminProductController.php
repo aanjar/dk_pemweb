@@ -50,9 +50,8 @@ class AdminProductController extends Controller
             'deskripsi_produk' => 'required',
             'status' => 'required|in:Baru,Second',
             'grade' => 'required|in:Unggulan,Standar,Minus',
-
-            //validasi gambar
             'gambar_produk.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'main_image_new' => 'required_with:gambar_produk|integer|min:0',
         ]);
 
         //simpan produk
@@ -68,17 +67,16 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->hasFile('gambar_produk')) {
+            $mainImageIndex = $request->main_image_new ?? 0;
             foreach ($request->file('gambar_produk') as $index => $file) {
                 $path = $file->store('gambar_produk', 'public');
-
                 GambarProduk::create([
                     'id_produk' => $produk->id,
                     'path_gambar' => $path,
-                    'is_main' => $index == $request->main_image_index,
+                    'is_main' => $index == $mainImageIndex,
                 ]);
             }
         }
-
 
         return redirect()->route('index')->with('success', 'Produk Berhasil Ditambahkan');
     }
@@ -140,6 +138,11 @@ class AdminProductController extends Controller
         if ($request->filled('main_image_existing')) {
             GambarProduk::where('id_produk', $produk->id)->update(['is_main' => false]);
             GambarProduk::where('id', $request->main_image_existing)->update(['is_main' => true]);
+            // Pastikan hanya satu gambar utama
+            $mainImages = GambarProduk::where('id_produk', $produk->id)->where('is_main', true)->get();
+            if ($mainImages->count() > 1) {
+                $mainImages->skip(1)->each(function($img) { $img->update(['is_main' => false]); });
+            }
         }
 
         if ($request->hasFile('gambar_produk')) {
@@ -150,6 +153,11 @@ class AdminProductController extends Controller
                     'path_gambar' => $path,
                     'is_main' => $request->main_image_new == $index,
                 ]);
+            }
+            // Pastikan hanya satu gambar utama
+            $mainImages = GambarProduk::where('id_produk', $produk->id)->where('is_main', true)->get();
+            if ($mainImages->count() > 1) {
+                $mainImages->skip(1)->each(function($img) { $img->update(['is_main' => false]); });
             }
         }
 

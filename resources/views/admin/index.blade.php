@@ -259,6 +259,7 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
+                                        <th>Thumbnail</th>
                                         <th>Kode SKU</th>
                                         <th>Nama Produk</th>
                                         <th>Harga</th>
@@ -272,6 +273,16 @@
                                 <tbody>
                                     @forelse ($products as $product)
                                         <tr>
+                                            <td>
+                                                @php
+                                                    $mainImage = $product->gambarUtama ? $product->gambarUtama->path_gambar : ($product->gambar && count($product->gambar) > 0 ? $product->gambar[0]->path_gambar : null);
+                                                @endphp
+                                                @if($mainImage)
+                                                    <img src="{{ asset('storage/' . $mainImage) }}" alt="Thumbnail" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                                @else
+                                                    <span class="text-muted">-</span>
+                                                @endif
+                                            </td>
                                             <td>{{ $product->kode_sku }}</td>
                                             <td>{{ $product->nama_produk }}</td>
                                             <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td>
@@ -366,43 +377,42 @@
 
         // Preview + pilih gambar utama
         function previewGambar(event) {
+            const previewContainer = document.getElementById('preview-container');
             const files = event.target.files;
-            const container = document.getElementById('preview-container');
-            // Kosongkan hanya preview gambar baru, pertahankan gambar lama
-            document.querySelectorAll('.image-container:not([data-image-id])').forEach(el => el.remove());
-
+            
+            // Clear existing previews if this is a new upload
+            if (!previewContainer.querySelector('.image-container')) {
+                previewContainer.innerHTML = '';
+            }
+            
             for (let i = 0; i < files.length; i++) {
+                const file = files[i];
                 const reader = new FileReader();
+                
                 reader.onload = function(e) {
                     const col = document.createElement('div');
-                    col.classList.add('col-4', 'image-container');
+                    col.className = 'col-4 image-container';
+                    
                     col.innerHTML = `
                         <div class="card">
                             <img src="${e.target.result}" class="card-img-top" style="height: 150px; object-fit: cover;">
                             <div class="card-body text-center">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="main_image_new" value="${i}" id="mainImageNew${i}" ${i === 0 ? 'checked' : ''}>
+                                    <input class="form-check-input" type="radio" name="main_image_new" value="${i}"
+                                        id="mainImageNew${i}" ${i === 0 ? 'checked' : ''}>
                                     <label class="form-check-label" for="mainImageNew${i}">
                                         Jadikan Gambar Utama
                                     </label>
                                 </div>
-                                <button type="button" class="btn btn-danger btn-sm mt-2 remove-image-new">Hapus</button>
                             </div>
                         </div>
                     `;
-                    container.appendChild(col);
+                    
+                    previewContainer.appendChild(col);
                 }
-                reader.readAsDataURL(files[i]);
+                
+                reader.readAsDataURL(file);
             }
-
-            // Tambahkan event listener untuk tombol hapus gambar baru
-            setTimeout(() => {
-                document.querySelectorAll('.remove-image-new').forEach(button => {
-                    button.addEventListener('click', function() {
-                        this.closest('.image-container').remove();
-                    });
-                });
-            }, 100);
         }
 
         // Hapus gambar lama via AJAX
