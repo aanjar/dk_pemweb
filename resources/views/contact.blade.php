@@ -125,10 +125,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2 class="text-center mb-4">Kirim Pesan</h2>
-                        <form class="needs-validation" novalidate>
+                        <form id="whatsappContactForm" class="needs-validation" novalidate>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="name" class="form-label">Nama Lengkap*</label>
+                                    <label for="name" name="name" class="form-label">Nama Lengkap*</label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="bi bi-person"></i></span>
                                         <input type="text" class="form-control" id="name" required>
@@ -141,32 +141,6 @@
                                         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                         <input type="email" class="form-control" id="email" required>
                                         <div class="invalid-feedback">Mohon isi alamat email yang valid</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label">Nomor Telepon*</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-phone"></i></span>
-                                        <input type="tel" class="form-control" id="phone" required>
-                                        <div class="invalid-feedback">Mohon isi nomor telepon Anda</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="store" class="form-label">Pilih Toko*</label>
-                                    <select class="form-select" id="store" required>
-                                        <option value="">Pilih lokasi toko...</option>
-                                        <option value="dinoyo1">Dinoyo Kamera 1</option>
-                                        <option value="dinoyo2">Dinoyo Kamera 2</option>
-                                        <option value="pasuruan">Toko Kamera Pasuruan</option>
-                                    </select>
-                                    <div class="invalid-feedback">Mohon pilih lokasi toko</div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="subject" class="form-label">Subjek*</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
-                                        <input type="text" class="form-control" id="subject" required>
-                                        <div class="invalid-feedback">Mohon isi subjek pesan</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -211,6 +185,38 @@
                 }, false)
             })
         })()
+
+    document.getElementById('whatsappContactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = this;
+
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const phoneNumber = '62895411200308'; // Ganti dengan nomor WhatsApp Anda!
+
+        // Buat teks pesan
+        const whatsappMessage = `
+Halo Dinoyo Kamera!%0A
+Saya *${encodeURIComponent(name)}*, ingin bertanya:%0A%0A
+*Pesan:*%0A${encodeURIComponent(message)}%0A%0A
+*Email:* ${encodeURIComponent(email)}%0A%0A
+        `.trim();
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+        window.open(whatsappUrl, '_blank');
+
+        form.reset();
+        form.classList.remove('was-validated');
+    });
     </script>
 </body>
 </html>
