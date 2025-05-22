@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    @include('partials.header')
+    @include('partials.headerAdmin')
 
     <main>
         <div class="container">
@@ -26,12 +26,6 @@
                     <div class="col-md-8">
                         <div class="d-flex align-items-center gap-3">
                             <h1>Dashboard Admin</h1>
-                            <form action="{{ route('logout') }}" method="POST" class="m-0"> {{-- m-0 removes default margin --}}
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="bi bi-box-arrow-right me-1"></i> Logout
-                                </button>
-                            </form>
                         </div>
                         <p class="lead text-muted">Kelola produk anda, tambahkan item, dan update inventaris anda
                             disini.</p>
@@ -48,7 +42,7 @@
 
             <!-- Quick Stats -->
             <div class="row g-4 mb-4">
-                <div class="col-md-4">
+                <div class="col-md-6 col-12">
                     <div class="admin-card">
                         <div class="card-body d-flex align-items-center">
                             <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
@@ -61,20 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="admin-card">
-                        <div class="card-body d-flex align-items-center">
-                            <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
-                                <i class="bi bi-check-circle text-success fs-4"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-1">Produk Aktif</h6>
-                                <h3 class="mb-0">{{ $products->where('status', 'Baru')->count() }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-12">
                     <div class="admin-card">
                         <div class="card-body d-flex align-items-center">
                             <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
@@ -350,7 +331,7 @@
         </div>
     </main>
 
-    @include('partials.footer')
+    @include('partials.footerAdmin')
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

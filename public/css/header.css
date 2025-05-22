@@ -8,9 +8,15 @@
 
 /* Scoped header styles */
 #main-header.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
     background-color: var(--header-primary) !important;
     padding: 1rem 0;
     box-shadow: var(--header-shadow);
+    min-height: 96px;
 }
 
 #main-header .navbar-brand {
@@ -100,6 +106,9 @@
 
 /* Mobile responsive brand text */
 @media (max-width: 576px) {
+    #main-header.navbar {
+        min-height: 80px;
+    }
     #main-header .brand-text {
         font-size: 1.25rem;
     }
@@ -107,4 +116,12 @@
     #main-header .navbar-brand img {
         max-width: 70px;
     }
+
+    body {
+        padding-top: 90px;
+    }
+}
+
+body {
+    padding-top: 110px;
 } 

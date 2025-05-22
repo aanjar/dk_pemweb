@@ -180,7 +180,7 @@
     </section>
 
     @include('partials.footer')
-    @include('partials.floater')
+    @include('partials.floating-wa')
 
     <script>
         // Initialize AOS

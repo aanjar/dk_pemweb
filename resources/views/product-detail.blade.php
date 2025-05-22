@@ -26,7 +26,7 @@
 <body>
     @include('partials.header')
 
-    <section id="product-detail" style="padding-top: 50px; padding-bottom:50px" >
+    <section id="product-detail" style="padding-top: 25px; padding-bottom:50px" >
     <div class="container">
         <div class="row align-items-center mb-3">
             <!-- Tombol Kembali -->

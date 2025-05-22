@@ -33,8 +33,8 @@
                         Passion Fotografi Anda
                     </h1>
                     <p class="hero-description">Kami adalah destinasi terpercaya untuk semua kebutuhan fotografi Anda. Dengan pengalaman lebih dari 10 tahun, kami menyediakan peralatan berkualitas dan layanan profesional untuk membantu mewujudkan visi kreatif Anda.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#about" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                    <div class="d-flex gap-3 py-3">
+                        <a href="#about" class="btn btn-primary" style="background-color: var(--secondary-color); border: none;">Pelajari Lebih Lanjut</a>
                         <a href="#contact" class="btn btn-outline-light">Hubungi Kami</a>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                 <div class="container text-center">
                     <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">Siap Memulai Perjalanan Fotografi Anda?</h2>
                     <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">Hubungi kami sekarang untuk konsultasi gratis dan temukan solusi terbaik untuk kebutuhan fotografi Anda.</p>
-                    <a href="/contact"  class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Mulai Sekarang</a>
+                    <a href="/contact"  class="btn btn-primary btn-lg" style="background-color: var(--secondary-color); border: none;" data-aos="fade-up" data-aos-delay="200">Mulai Sekarang</a>
                 </div>
             </div>
         </section>
