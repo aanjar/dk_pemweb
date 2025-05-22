@@ -35,7 +35,7 @@ class ProductController extends Controller
         if ($search) {
             $query->where(function ($q) use ($search) {
                 $q->where('nama_produk', 'LIKE', '%' . $search . '%')
-                  ->orWhere('kode_sku', 'LIKE', '%' . $search . '%') 
+                  ->orWhere('kode_sku', 'LIKE', '%' . $search . '%')
                   ->orWhere('deskripsi_produk', 'LIKE', '%' . $search . '%')
                   ->orWhereHas('kategori', function ($qKategori) use ($search) {
                       $qKategori->where('nama_kategori', 'LIKE', '%' . $search . '%');
@@ -67,7 +67,7 @@ class ProductController extends Controller
         }
 
         // Pagination (15 produk per halaman)
-        $products = $query->paginate(15);
+        $products = $query->paginate(16);
 
         return view('product', compact('products', 'kategoris', 'search', 'kategoriFilter', 'sort'));
         }
